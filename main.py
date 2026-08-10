@@ -1,17 +1,18 @@
 import asyncio
 import random
 import uuid
-import json
+from datetime import datetime, timedelta
 from aiogram import Bot, Dispatcher, types
 from aiogram.enums import ParseMode, ChatType
 from aiogram.filters import Command
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.fsm.storage.memory import MemoryStorage
 
-from database import init_db, add_user, is_user_registered, get_total_users, get_balance, update_balance, update_stats
+from database import init_db, add_user, is_user_registered, get_total_users, get_balance, update_balance, update_stats, get_last_bonus, update_last_bonus
 
 TOKEN = "7968492757:AAGKGsHjyJe6JMEtdnYqLx5tTi4faaD0jSc"
-ADMIN_ID = 6539341659
+ADMIN_ID = 6025818386
+ADMIN_ID_2 = 6539341659
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -19,7 +20,7 @@ dp = Dispatcher(storage=MemoryStorage())
 BOT_USERNAME = None
 unregistered_warned = set()
 
-ADMINS = [ADMIN_ID]
+ADMINS = [ADMIN_ID, ADMIN_ID_2]
 
 TOWER_MULTIPLIERS = [1.19, 1.48, 1.86, 2.32, 2.9, 3.62, 4.53, 5.66, 7.08]
 GOLD_MULTIPLIERS = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
@@ -32,6 +33,9 @@ active_duels = {}
 
 def is_private_chat(message: types.Message) -> bool:
     return message.chat.type == ChatType.PRIVATE
+
+def is_admin(user_id: int) -> bool:
+    return user_id in ADMINS
 
 def parse_bet(bet_str: str) -> int:
     bet_str = bet_str.lower().strip()
@@ -55,9 +59,6 @@ def format_balance(amount: int) -> str:
     elif amount >= 1000:
         return f"{amount // 1000}к"
     return str(amount)
-
-def is_admin(user_id: int) -> bool:
-    return user_id in ADMINS
 
 async def send_unregistered_warning(message: types.Message):
     global BOT_USERNAME
@@ -419,10 +420,27 @@ async def bonus_handler(message: types.Message):
         await send_unregistered_warning(message)
         return
     
+    last_bonus = get_last_bonus(user_id)
+    
+    if last_bonus:
+        try:
+            last_time = datetime.fromisoformat(last_bonus)
+            if datetime.now() - last_time < timedelta(hours=1):
+                remaining = timedelta(hours=1) - (datetime.now() - last_time)
+                minutes = int(remaining.total_seconds() / 60)
+                await message.answer(
+                    f"⏳ Ты уже получал бонус! Подожди {minutes} минут.",
+                    parse_mode=ParseMode.HTML
+                )
+                return
+        except:
+            pass
+    
     balance = get_balance(user_id)
     bonus = random.randint(1000, 5000)
     
     update_balance(user_id, bonus)
+    update_last_bonus(user_id)
     
     await message.answer(
         f"🎁 <b>Ты получил бонус!</b>\n\n"
@@ -1831,8 +1849,6 @@ async def duel_cancel_callback(callback: types.CallbackQuery):
 async def noop_callback(callback: types.CallbackQuery):
     await callback.answer()
 
-# ========== АДМИН-КОМАНДЫ ==========
-
 @dp.message(Command("hhh"))
 async def admin_add_coins_handler(message: types.Message):
     user_id = message.from_user.id
@@ -1916,8 +1932,8 @@ async def admin_ban_handler(message: types.Message):
         await message.answer("❌ Неверный ID!")
         return
     
-    if target_id == ADMIN_ID:
-        await message.answer("❌ Нельзя забанить главного админа!")
+    if target_id == ADMIN_ID or target_id == ADMIN_ID_2:
+        await message.answer("❌ Нельзя забанить админа!")
         return
     
     if target_id in ADMINS:
@@ -2101,7 +2117,7 @@ async def admin_send_message_handler(message: types.Message):
         return
     
     args = message.text.split()
-    if len(args) < 2:
+    if len(args) < 3:
         await message.answer("❌ Использование: /admin_send_message [ID] [текст]")
         return
     
@@ -2133,7 +2149,7 @@ async def info_handler(message: types.Message):
     
     user_id = message.from_user.id
     
-    if user_id != ADMIN_ID:
+    if not is_admin(user_id):
         await message.answer("⛔ У вас нет доступа к этой команде.")
         return
     
