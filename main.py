@@ -12,7 +12,7 @@ from database import init_db, add_user, is_user_registered, get_total_users, get
 
 TOKEN = "7968492757:AAGKGsHjyJe6JMEtdnYqLx5tTi4faaD0jSc"
 ADMIN_ID = 6025818386
-ADMIN_ID_2 = 123456789
+ADMIN_ID_2 = 6539341659
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -596,10 +596,12 @@ async def crash_text_handler(message: types.Message):
         multiplier = float(args[2].replace(",", "."))
     except:
         await message.answer(f"{get_emoji('cross')} Неверный множитель!")
+        parse_mode=ParseMode.HTML
         return
     
     if multiplier < 1.01 or multiplier > 10:
         await message.answer(f"{get_emoji('cross')} Множитель должен быть от 1.01 до 10.00")
+        parse_mode=ParseMode.HTML
         return
     
     balance = get_balance(user_id)
@@ -611,10 +613,12 @@ async def crash_text_handler(message: types.Message):
     
     if bet <= 0:
         await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        parse_mode=ParseMode.HTML
         return
     
     if bet > balance:
         await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        parse_mode=ParseMode.HTML
         return
     
     r = random.random()
