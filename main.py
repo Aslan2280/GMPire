@@ -600,8 +600,7 @@ async def crash_text_handler(message: types.Message):
         return
     
     if multiplier < 1.01 or multiplier > 10:
-        await message.answer(f"{get_emoji('cross')} Множитель должен быть от 1.01 до 10.00")
-        parse_mode=ParseMode.HTML
+        await message.answer(f"{get_emoji('cross')} Множитель должен быть от 1.01 до 10.00" parse_mode=ParseMode.HTML)
         return
     
     balance = get_balance(user_id)
@@ -617,8 +616,8 @@ async def crash_text_handler(message: types.Message):
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
-        parse_mode=ParseMode.HTML
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}" parse_mode=ParseMode.HTML)
+        
         return
     
     r = random.random()
