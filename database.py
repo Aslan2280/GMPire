@@ -15,7 +15,8 @@ def init_db():
             registered_at TEXT,
             balance INTEGER DEFAULT 1000,
             total_won INTEGER DEFAULT 0,
-            total_lost INTEGER DEFAULT 0
+            total_lost INTEGER DEFAULT 0,
+            last_bonus TEXT
         )
     """)
     conn.commit()
@@ -25,8 +26,8 @@ def add_user(user_id: int, username: str = None, first_name: str = None, last_na
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
     cursor.execute("""
-        INSERT OR REPLACE INTO users (user_id, username, first_name, last_name, registered_at, balance, total_won, total_lost)
-        VALUES (?, ?, ?, ?, ?, COALESCE((SELECT balance FROM users WHERE user_id = ?), 1000), COALESCE((SELECT total_won FROM users WHERE user_id = ?), 0), COALESCE((SELECT total_lost FROM users WHERE user_id = ?), 0))
+        INSERT OR REPLACE INTO users (user_id, username, first_name, last_name, registered_at, balance, total_won, total_lost, last_bonus)
+        VALUES (?, ?, ?, ?, ?, COALESCE((SELECT balance FROM users WHERE user_id = ?), 1000), COALESCE((SELECT total_won FROM users WHERE user_id = ?), 0), COALESCE((SELECT total_lost FROM users WHERE user_id = ?), 0), NULL)
     """, (user_id, username, first_name, last_name, datetime.now().isoformat(), user_id, user_id, user_id))
     conn.commit()
     conn.close()
@@ -69,5 +70,20 @@ def update_stats(user_id: int, won: int = 0, lost: int = 0):
         cursor.execute("UPDATE users SET total_won = total_won + ? WHERE user_id = ?", (won, user_id))
     if lost > 0:
         cursor.execute("UPDATE users SET total_lost = total_lost + ? WHERE user_id = ?", (lost, user_id))
+    conn.commit()
+    conn.close()
+
+def get_last_bonus(user_id: int):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    cursor.execute("SELECT last_bonus FROM users WHERE user_id = ?", (user_id,))
+    result = cursor.fetchone()
+    conn.close()
+    return result[0] if result else None
+
+def update_last_bonus(user_id: int):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    cursor.execute("UPDATE users SET last_bonus = ? WHERE user_id = ?", (datetime.now().isoformat(), user_id))
     conn.commit()
     conn.close()
