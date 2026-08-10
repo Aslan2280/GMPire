@@ -31,6 +31,78 @@ user_mines_games = {}
 user_diamond_games = {}
 active_duels = {}
 
+CUSTOM_EMOJIS = {
+    "rocket": '<tg-emoji emoji-id="5283080528818360566">🚀</tg-emoji>',
+    "chart_up": '<tg-emoji emoji-id="5373001317042101552">📈</tg-emoji>',
+    "chart_down": '<tg-emoji emoji-id="5361748661640372834">📉</tg-emoji>',
+    "check": '<tg-emoji emoji-id="5021905410089550576">✅</tg-emoji>',
+    "cross": '<tg-emoji emoji-id="5019523782004441717">❌</tg-emoji>',
+    "dice": '<tg-emoji emoji-id="5260547274957672345">🎲</tg-emoji>',
+    "roulette": '<tg-emoji emoji-id="5235989279024373566">🎰</tg-emoji>',
+    "tower": '<tg-emoji emoji-id="5907939666094993874">🏯</tg-emoji>',
+    "gold": '<tg-emoji emoji-id="5883162768024301085">⛏️</tg-emoji>',
+    "mine": '<tg-emoji emoji-id="5454225015534805938">💣</tg-emoji>',
+    "diamond": '<tg-emoji emoji-id="5888887522876584474">💠</tg-emoji>',
+    "chest": '<tg-emoji emoji-id="5894563709126707121">📦</tg-emoji>',
+    "duel": '<tg-emoji emoji-id="5895935042464853086">⚔️</tg-emoji>',
+    "money": '<tg-emoji emoji-id="5907953701273239473">💰</tg-emoji>',
+    "balance": '<tg-emoji emoji-id="5445353829304387411">💳</tg-emoji>',
+    "bonus": '<tg-emoji emoji-id="5348297073177406710">🎁</tg-emoji>',
+    "question": '<tg-emoji emoji-id="5894215274460211666">❔</tg-emoji>',
+    "safe": '<tg-emoji emoji-id="5894734841833841638">🌀</tg-emoji>',
+    "bomb": '<tg-emoji emoji-id="5897333023447005922">💥</tg-emoji>',
+    "mine_field": '<tg-emoji emoji-id="5454225015534805938">💣</tg-emoji>',
+    "empty": '<tg-emoji emoji-id="5907865132297888783">▫️</tg-emoji>',
+    "crown": '<tg-emoji emoji-id="5280769763398671636">🏆</tg-emoji>',
+    "star": '<tg-emoji emoji-id="5897173044543388280">⭐</tg-emoji>',
+    "fire": '<tg-emoji emoji-id="5907860505999600792">🔥</tg-emoji>',
+    "sparkles": '<tg-emoji emoji-id="5907864453832253987">✨</tg-emoji>',
+    "lock": '<tg-emoji emoji-id="5895672999836213946">🔒</tg-emoji>',
+    "unlock": '<tg-emoji emoji-id="5895672999836213946">🔓</tg-emoji>',
+    "warning": '<tg-emoji emoji-id="5267284004175909887">⚠️</tg-emoji>',
+    "info": '<tg-emoji emoji-id="5907955116480392437">ℹ️</tg-emoji>',
+    "help": '<tg-emoji emoji-id="5907861580114690425">🆘</tg-emoji>',
+    "admin": '<tg-emoji emoji-id="5280769763398671636">👑</tg-emoji>',
+    "user": '<tg-emoji emoji-id="5907867376541312450">👤</tg-emoji>',
+    "registered": '<tg-emoji emoji-id="5907951154051459049">📊</tg-emoji>',
+    "send": '<tg-emoji emoji-id="5907807267171797007">📨</tg-emoji>',
+    "broadcast": '<tg-emoji emoji-id="5907808984435040707">📢</tg-emoji>',
+    "ban": '<tg-emoji emoji-id="5907947351586636762">🚫</tg-emoji>',
+    "clear": '<tg-emoji emoji-id="5897335454173645838">🗑️</tg-emoji>',
+    "reset": '<tg-emoji emoji-id="5907864753150883482">🔄</tg-emoji>',
+    "add": '<tg-emoji emoji-id="5907797234210930711">➕</tg-emoji>',
+    "remove": '<tg-emoji emoji-id="5907798295064081354">➖</tg-emoji>',
+    "settings": '<tg-emoji emoji-id="5907951591026323327">⚙️</tg-emoji>',
+    "game": '<tg-emoji emoji-id="5467583879948803288">🎮</tg-emoji>',
+    "play": '<tg-emoji emoji-id="5350612670435313545">▶️</tg-emoji>',
+    "stop": '<tg-emoji emoji-id="5350616014035610064">⏹️</tg-emoji>',
+    "pause": '<tg-emoji emoji-id="5350618196964531764">⏸️</tg-emoji>',
+    "next": '<tg-emoji emoji-id="5352671027086039891">⏭️</tg-emoji>',
+    "back": '<tg-emoji emoji-id="5352666793145476417">⏮️</tg-emoji>',
+    "up": '<tg-emoji emoji-id="5890652984693035872">⬆️</tg-emoji>',
+    "down": '<tg-emoji emoji-id="5890653171360525260">⬇️</tg-emoji>',
+    "left": '<tg-emoji emoji-id="5890652528622760846">⬅️</tg-emoji>',
+    "right": '<tg-emoji emoji-id="5890653322694491590">➡️</tg-emoji>',
+    "medal": '<tg-emoji emoji-id="5896468492678808452">🥇</tg-emoji>',
+    "medal2": '<tg-emoji emoji-id="5896468686705041656">🥈</tg-emoji>',
+    "medal3": '<tg-emoji emoji-id="5896468881059416400">🥉</tg-emoji>',
+    "gift": '<tg-emoji emoji-id="5907810849504727013">🎁</tg-emoji>',
+    "party": '<tg-emoji emoji-id="5352660205939890989">🎉</tg-emoji>',
+    "sad": '<tg-emoji emoji-id="5897716508059492600">😔</tg-emoji>',
+    "happy": '<tg-emoji emoji-id="5897718849450212252">😊</tg-emoji>',
+    "cool": '<tg-emoji emoji-id="5897718491432584182">😎</tg-emoji>',
+    "heart": '<tg-emoji emoji-id="5383973843300810952">❤️</tg-emoji>',
+    "lightning": '<tg-emoji emoji-id="5890460943165815081">⚡</tg-emoji>',
+    "clock": '<tg-emoji emoji-id="5891214982569710956">⏰</tg-emoji>',
+    "calendar": '<tg-emoji emoji-id="5891215347782595240">📅</tg-emoji>',
+    "time": '<tg-emoji emoji-id="5891215590995721138">⏳</tg-emoji>',
+    "percent": '<tg-emoji emoji-id="5890461853581371831">💯</tg-emoji>',
+    "level": '<tg-emoji emoji-id="5907939666094993874">🪜</tg-emoji>'
+}
+
+def get_emoji(key: str) -> str:
+    return CUSTOM_EMOJIS.get(key, "❔")
+
 def is_private_chat(message: types.Message) -> bool:
     return message.chat.type == ChatType.PRIVATE
 
@@ -71,14 +143,14 @@ async def send_unregistered_warning(message: types.Message):
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text="Зарегистрироваться",
+                    text=f"{get_emoji('unlock')} Зарегистрироваться",
                     url=f"https://t.me/{BOT_USERNAME}?start=none"
                 )
             ]
         ]
     )
 
-    text = "🤨 <b>Ты не из наших! Для регистрации нажми кнопку ниже</b>"
+    text = f"{get_emoji('warning')} <b>Ты не из наших! Для регистрации нажми кнопку ниже</b>"
 
     await message.answer(
         text=text,
@@ -101,26 +173,26 @@ def build_tower_keyboard(user_id: int, game_id: str) -> InlineKeyboardMarkup:
     
     kb = []
     kb.append([
-        InlineKeyboardButton(text="❔", callback_data=f"tower:{game_id}:0"),
-        InlineKeyboardButton(text="❔", callback_data=f"tower:{game_id}:1"),
-        InlineKeyboardButton(text="❔", callback_data=f"tower:{game_id}:2"),
-        InlineKeyboardButton(text="❔", callback_data=f"tower:{game_id}:3"),
-        InlineKeyboardButton(text="❔", callback_data=f"tower:{game_id}:4")
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:0"),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:1"),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:2"),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:3"),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:4")
     ])
     
     for i in range(level - 1, -1, -1):
         row = []
         for j in range(5):
             if i < len(selected) and selected[i] == j:
-                row.append(InlineKeyboardButton(text="🌀", callback_data="noop"))
+                row.append(InlineKeyboardButton(text=f"{get_emoji('safe')}", callback_data="noop"))
             else:
-                row.append(InlineKeyboardButton(text="❔", callback_data="noop"))
+                row.append(InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data="noop"))
         kb.append(row)
     
     if level == 0:
-        kb.append([InlineKeyboardButton(text="❌ Отмена", callback_data=f"tower_cancel:{game_id}")])
+        kb.append([InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"tower_cancel:{game_id}")])
     else:
-        kb.append([InlineKeyboardButton(text="💰 Забрать", callback_data=f"tower_collect:{game_id}")])
+        kb.append([InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"tower_collect:{game_id}")])
     
     return InlineKeyboardMarkup(inline_keyboard=kb)
 
@@ -147,13 +219,13 @@ def build_final_tower_keyboard(game_id: str) -> InlineKeyboardMarkup:
         for j in range(5):
             if lost and i < len(bombs) and bombs[i][j] == 1:
                 if i < len(selected) and selected[i] == j:
-                    row.append(InlineKeyboardButton(text="💥", callback_data="noop"))
+                    row.append(InlineKeyboardButton(text=f"{get_emoji('bomb')}", callback_data="noop"))
                 else:
-                    row.append(InlineKeyboardButton(text="💣", callback_data="noop"))
+                    row.append(InlineKeyboardButton(text=f"{get_emoji('mine_field')}", callback_data="noop"))
             elif i < len(selected) and selected[i] == j:
-                row.append(InlineKeyboardButton(text="🌀", callback_data="noop"))
+                row.append(InlineKeyboardButton(text=f"{get_emoji('safe')}", callback_data="noop"))
             else:
-                row.append(InlineKeyboardButton(text="▫️", callback_data="noop"))
+                row.append(InlineKeyboardButton(text=f"{get_emoji('empty')}", callback_data="noop"))
         kb.append(row)
     
     return InlineKeyboardMarkup(inline_keyboard=kb)
@@ -163,11 +235,11 @@ def build_gold_keyboard(user_id: int, game_id: str, level: int) -> InlineKeyboar
         return InlineKeyboardMarkup(
             inline_keyboard=[
                 [
-                    InlineKeyboardButton(text="❔", callback_data=f"gold:{game_id}:0"),
-                    InlineKeyboardButton(text="❔", callback_data=f"gold:{game_id}:1")
+                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:0"),
+                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:1")
                 ],
                 [
-                    InlineKeyboardButton(text="❌ Отмена", callback_data=f"gold_cancel:{game_id}")
+                    InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"gold_cancel:{game_id}")
                 ]
             ]
         )
@@ -175,11 +247,11 @@ def build_gold_keyboard(user_id: int, game_id: str, level: int) -> InlineKeyboar
         return InlineKeyboardMarkup(
             inline_keyboard=[
                 [
-                    InlineKeyboardButton(text="❔", callback_data=f"gold:{game_id}:0"),
-                    InlineKeyboardButton(text="❔", callback_data=f"gold:{game_id}:1")
+                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:0"),
+                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:1")
                 ],
                 [
-                    InlineKeyboardButton(text="💰 Забрать", callback_data=f"gold_collect:{game_id}")
+                    InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"gold_collect:{game_id}")
                 ]
             ]
         )
@@ -206,14 +278,14 @@ def build_mines_keyboard(game_id: str) -> InlineKeyboardMarkup:
     if opened > 0:
         kb.append([
             InlineKeyboardButton(
-                text=f"💰 Забрать",
+                text=f"{get_emoji('money')} Забрать",
                 callback_data=f"mines_collect:{game_id}"
             )
         ])
     else:
         kb.append([
             InlineKeyboardButton(
-                text="❌ Отмена",
+                text=f"{get_emoji('cross')} Отмена",
                 callback_data=f"mines_cancel:{game_id}"
             )
         ])
@@ -251,21 +323,21 @@ def build_diamond_keyboard(game_id: str) -> InlineKeyboardMarkup:
         row_buttons = []
         for j in range(3):
             if choice is not None and choice == j:
-                row_buttons.append(InlineKeyboardButton(text="💠", callback_data="noop"))
+                row_buttons.append(InlineKeyboardButton(text=f"{get_emoji('diamond')}", callback_data="noop"))
             else:
-                row_buttons.append(InlineKeyboardButton(text="❔", callback_data="noop"))
+                row_buttons.append(InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data="noop"))
         kb.append(row_buttons)
     
     kb.append([
-        InlineKeyboardButton(text="❔", callback_data=f"diamond:{game_id}:0"),
-        InlineKeyboardButton(text="❔", callback_data=f"diamond:{game_id}:1"),
-        InlineKeyboardButton(text="❔", callback_data=f"diamond:{game_id}:2")
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:0"),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:1"),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:2")
     ])
     
     if level == 0:
-        kb.append([InlineKeyboardButton(text="❌ Отмена", callback_data=f"diamond_cancel:{game_id}")])
+        kb.append([InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"diamond_cancel:{game_id}")])
     else:
-        kb.append([InlineKeyboardButton(text="💰 Забрать", callback_data=f"diamond_collect:{game_id}")])
+        kb.append([InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"diamond_collect:{game_id}")])
     
     return InlineKeyboardMarkup(inline_keyboard=kb)
 
@@ -279,21 +351,21 @@ async def start_handler(message: types.Message):
     if is_private_chat(message):
         if payload == "none":
             text = (
-                "<b>Привет! 👋 Ты в GMPire — место, где время летит незаметно</b>\n\n"
-                "🎮 Тут ты можешь найти интересные игры!\n\n"
-                "Соревнуйся с друзьями или же другими игроками и продвигай свой чат либо канал🏆"
+                f"{get_emoji('sparkles')} <b>Привет! Ты в GMPire — место, где время летит незаметно</b>\n\n"
+                f"{get_emoji('game')} Тут ты можешь найти интересные игры!\n\n"
+                f"Соревнуйся с друзьями или же другими игроками и продвигай свой чат либо канал {get_emoji('crown')}"
             )
             keyboard = InlineKeyboardMarkup(
                 inline_keyboard=[
                     [
                         InlineKeyboardButton(
-                            text="Играть",
+                            text=f"{get_emoji('play')} Играть",
                             callback_data="play"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            text="Добавить бота в чат",
+                            text=f"{get_emoji('add')} Добавить бота в чат",
                             url=f"https://t.me/{BOT_USERNAME}?startgroup=start"
                         )
                     ]
@@ -321,21 +393,21 @@ async def start_handler(message: types.Message):
             unregistered_warned.remove(user_id)
 
         text = (
-            "<b>Привет! 👋 Ты в GMPire — место, где время летит незаметно</b>\n\n"
-            "🎮 Тут ты можешь найти интересные игры!\n\n"
-            "Соревнуйся с друзьями или же другими игроками и продвигай свой чат либо канал🏆"
+            f"{get_emoji('sparkles')} <b>Привет! Ты в GMPire — место, где время летит незаметно</b>\n\n"
+            f"{get_emoji('game')} Тут ты можешь найти интересные игры!\n\n"
+            f"Соревнуйся с друзьями или же другими игроками и продвигай свой чат либо канал {get_emoji('crown')}"
         )
         keyboard = InlineKeyboardMarkup(
             inline_keyboard=[
                 [
                     InlineKeyboardButton(
-                        text="Играть",
+                        text=f"{get_emoji('play')} Играть",
                         callback_data="play"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        text="Добавить бота в чат",
+                        text=f"{get_emoji('add')} Добавить бота в чат",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=start"
                     )
                 ]
@@ -364,28 +436,28 @@ async def help_handler(message: types.Message):
             return
         
         await message.answer(
-            "🆘 <b>Список игр и команд:</b>\n\n"
-            "🎰 <b>Рулетка</b> - рул [сумма] [ставка]\n"
-            "   Ставки: красное, черное, четное, нечетное\n"
-            "   Пример: рул 500 красное\n\n"
-            "🚀 <b>Краш</b> - краш [сумма] [множитель]\n"
-            "   Пример: краш 100 2.5\n\n"
-            "🎲 <b>Кости</b> - кости [сумма] [м|б|равно]\n"
-            "   Пример: кости 500 б\n\n"
-            "🏯 <b>Башня</b> - башня [сумма]\n"
-            "   Пример: башня 500\n\n"
-            "⛏️ <b>Золото</b> - золото [сумма]\n"
-            "   Пример: золото 500\n\n"
-            "💣 <b>Мины</b> - мины [сумма] [мин]\n"
-            "   Пример: мины 500 3\n\n"
-            "💠 <b>Алмазы</b> - алмазы [сумма] [мин]\n"
-            "   Пример: алмазы 500 1\n\n"
-            "📦 <b>Сундуки</b> - сундуки [сумма]\n"
-            "   Пример: сундуки 500\n\n"
-            "⚔️ <b>Дуэль</b> - дуэль [сумма]\n"
-            "   Пример: дуэль 500\n\n"
-            "💰 <b>Баланс</b> - б или баланс\n"
-            "🎁 <b>Бонус</b> - бонус",
+            f"{get_emoji('help')} <b>Список игр и команд:</b>\n\n"
+            f"{get_emoji('roulette')} <b>Рулетка</b> - рул [сумма] [ставка]\n"
+            f"   Ставки: красное, черное, четное, нечетное\n"
+            f"   Пример: рул 500 красное\n\n"
+            f"{get_emoji('rocket')} <b>Краш</b> - краш [сумма] [множитель]\n"
+            f"   Пример: краш 100 2.5\n\n"
+            f"{get_emoji('dice')} <b>Кости</b> - кости [сумма] [м|б|равно]\n"
+            f"   Пример: кости 500 б\n\n"
+            f"{get_emoji('tower')} <b>Башня</b> - башня [сумма]\n"
+            f"   Пример: башня 500\n\n"
+            f"{get_emoji('gold')} <b>Золото</b> - золото [сумма]\n"
+            f"   Пример: золото 500\n\n"
+            f"{get_emoji('mine')} <b>Мины</b> - мины [сумма] [мин]\n"
+            f"   Пример: мины 500 3\n\n"
+            f"{get_emoji('diamond')} <b>Алмазы</b> - алмазы [сумма] [мин]\n"
+            f"   Пример: алмазы 500 1\n\n"
+            f"{get_emoji('chest')} <b>Сундуки</b> - сундуки [сумма]\n"
+            f"   Пример: сундуки 500\n\n"
+            f"{get_emoji('duel')} <b>Дуэль</b> - дуэль [сумма]\n"
+            f"   Пример: дуэль 500\n\n"
+            f"{get_emoji('money')} <b>Баланс</b> - б или баланс\n"
+            f"{get_emoji('bonus')} <b>Бонус</b> - бонус",
             parse_mode=ParseMode.HTML
         )
     else:
@@ -402,7 +474,7 @@ async def balance_text_handler(message: types.Message):
             return
         
         balance = get_balance(user_id)
-        await message.answer(f"💰 Ваш баланс: <b>{format_balance(balance)}</b> монет", parse_mode=ParseMode.HTML)
+        await message.answer(f"{get_emoji('money')} Ваш баланс: <b>{format_balance(balance)}</b> монет", parse_mode=ParseMode.HTML)
     else:
         if not is_user_registered(user_id):
             await send_unregistered_warning(message)
@@ -429,7 +501,7 @@ async def bonus_handler(message: types.Message):
                 remaining = timedelta(hours=1) - (datetime.now() - last_time)
                 minutes = int(remaining.total_seconds() / 60)
                 await message.answer(
-                    f"⏳ Ты уже получал бонус! Подожди {minutes} минут.",
+                    f"{get_emoji('time')} Ты уже получал бонус! Подожди {minutes} минут.",
                     parse_mode=ParseMode.HTML
                 )
                 return
@@ -443,9 +515,9 @@ async def bonus_handler(message: types.Message):
     update_last_bonus(user_id)
     
     await message.answer(
-        f"🎁 <b>Ты получил бонус!</b>\n\n"
-        f"💰 Бонус: {format_balance(bonus)}\n"
-        f"💳 Баланс: {format_balance(get_balance(user_id))}",
+        f"{get_emoji('bonus')} <b>Ты получил бонус!</b>\n\n"
+        f"{get_emoji('money')} Бонус: {format_balance(bonus)}\n"
+        f"{get_emoji('balance')} Баланс: {format_balance(get_balance(user_id))}",
         parse_mode=ParseMode.HTML
     )
 
@@ -465,7 +537,7 @@ async def crash_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) != 3:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>краш 100 2.5</code>\n"
             "Пример: <code>краш все 3</code>",
             parse_mode=ParseMode.HTML
@@ -476,11 +548,11 @@ async def crash_text_handler(message: types.Message):
     try:
         multiplier = float(args[2].replace(",", "."))
     except:
-        await message.answer("❌ Неверный множитель!")
+        await message.answer(f"{get_emoji('cross')} Неверный множитель!")
         return
     
     if multiplier < 1.01 or multiplier > 10:
-        await message.answer("❌ Множитель должен быть от 1.01 до 10.00")
+        await message.answer(f"{get_emoji('cross')} Множитель должен быть от 1.01 до 10.00")
         return
     
     balance = get_balance(user_id)
@@ -491,11 +563,11 @@ async def crash_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     r = random.random()
@@ -519,16 +591,16 @@ async def crash_text_handler(message: types.Message):
         update_stats(user_id, won=win)
         
         await message.answer(
-            f"🚀 <b>Ракета улетела на x{crash_multiplier:.2f}</b> 📈\n"
-            f"✅ <b>Ты выиграл!</b> Твой выигрыш составил {format_balance(win)}",
+            f"{get_emoji('rocket')} <b>Ракета улетела на x{crash_multiplier:.2f}</b> {get_emoji('chart_up')}\n"
+            f"{get_emoji('check')} <b>Ты выиграл!</b> Твой выигрыш составил {format_balance(win)}",
             parse_mode=ParseMode.HTML
         )
     else:
         update_stats(user_id, lost=bet)
         
         await message.answer(
-            f"🚀 <b>Ракета упала на x{crash_multiplier:.2f}</b> 📉\n"
-            f"❌ <b>Ты проиграл</b> {format_balance(bet)}",
+            f"{get_emoji('rocket')} <b>Ракета упала на x{crash_multiplier:.2f}</b> {get_emoji('chart_down')}\n"
+            f"{get_emoji('cross')} <b>Ты проиграл</b> {format_balance(bet)}",
             parse_mode=ParseMode.HTML
         )
 
@@ -548,7 +620,7 @@ async def roulette_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) != 3:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>рул 500 красное</code>\n"
             "Пример: <code>рул все черное</code>\n\n"
             "Доступные ставки: красное, черное, четное, нечетное",
@@ -562,7 +634,7 @@ async def roulette_text_handler(message: types.Message):
     valid_bets = ["красное", "черное", "четное", "нечетное"]
     if bet_type not in valid_bets:
         await message.answer(
-            "❌ Неверная ставка!\n"
+            f"{get_emoji('cross')} Неверная ставка!\n"
             "Доступные ставки: красное, черное, четное, нечетное"
         )
         return
@@ -575,11 +647,11 @@ async def roulette_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     number = random.randint(0, 36)
@@ -617,16 +689,16 @@ async def roulette_text_handler(message: types.Message):
         
         if number == 0:
             await message.answer(
-                f"🎰 <b>Рулетка!</b>\n\n"
-                f"🎯 Выпало: <b>{number}</b> (зеленое)\n"
-                f"✅ <b>Ты выиграл!</b> {format_balance(win_amount)}",
+                f"{get_emoji('roulette')} <b>Рулетка!</b>\n\n"
+                f"{get_emoji('star')} Выпало: <b>{number}</b> (зеленое)\n"
+                f"{get_emoji('check')} <b>Ты выиграл!</b> {format_balance(win_amount)}",
                 parse_mode=ParseMode.HTML
             )
         else:
             await message.answer(
-                f"🎰 <b>Рулетка!</b>\n\n"
-                f"🎯 Выпало: <b>{number}</b> ({color})\n"
-                f"✅ <b>Ты выиграл!</b> {format_balance(win_amount)}",
+                f"{get_emoji('roulette')} <b>Рулетка!</b>\n\n"
+                f"{get_emoji('star')} Выпало: <b>{number}</b> ({color})\n"
+                f"{get_emoji('check')} <b>Ты выиграл!</b> {format_balance(win_amount)}",
                 parse_mode=ParseMode.HTML
             )
     else:
@@ -634,16 +706,16 @@ async def roulette_text_handler(message: types.Message):
         
         if number == 0:
             await message.answer(
-                f"🎰 <b>Рулетка!</b>\n\n"
-                f"🎯 Выпало: <b>{number}</b> (зеленое)\n"
-                f"❌ <b>Ты проиграл</b> {format_balance(bet)}",
+                f"{get_emoji('roulette')} <b>Рулетка!</b>\n\n"
+                f"{get_emoji('star')} Выпало: <b>{number}</b> (зеленое)\n"
+                f"{get_emoji('cross')} <b>Ты проиграл</b> {format_balance(bet)}",
                 parse_mode=ParseMode.HTML
             )
         else:
             await message.answer(
-                f"🎰 <b>Рулетка!</b>\n\n"
-                f"🎯 Выпало: <b>{number}</b> ({color})\n"
-                f"❌ <b>Ты проиграл</b> {format_balance(bet)}",
+                f"{get_emoji('roulette')} <b>Рулетка!</b>\n\n"
+                f"{get_emoji('star')} Выпало: <b>{number}</b> ({color})\n"
+                f"{get_emoji('cross')} <b>Ты проиграл</b> {format_balance(bet)}",
                 parse_mode=ParseMode.HTML
             )
 
@@ -663,7 +735,7 @@ async def dice_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) != 3:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>кости 500 б</code>\n"
             "Пример: <code>кости все равно</code>\n\n"
             "Доступные ставки: м (меньше 7), б (больше 7), равно (ровно 7)",
@@ -676,7 +748,7 @@ async def dice_text_handler(message: types.Message):
     
     if bet_type not in ["м", "б", "равно"]:
         await message.answer(
-            "❌ Неверная ставка!\n"
+            f"{get_emoji('cross')} Неверная ставка!\n"
             "Доступные ставки: м, б, равно"
         )
         return
@@ -689,11 +761,11 @@ async def dice_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     d1 = random.randint(1, 6)
@@ -719,18 +791,18 @@ async def dice_text_handler(message: types.Message):
         update_stats(user_id, won=win_amount)
         
         await message.answer(
-            f"🎲 <b>Кости!</b>\n\n"
-            f"🎯 Выпало: <b>{d1}</b> и <b>{d2}</b> = <b>{total}</b>\n"
-            f"✅ <b>Ты выиграл!</b> {format_balance(win_amount)}",
+            f"{get_emoji('dice')} <b>Кости!</b>\n\n"
+            f"{get_emoji('star')} Выпало: <b>{d1}</b> и <b>{d2}</b> = <b>{total}</b>\n"
+            f"{get_emoji('check')} <b>Ты выиграл!</b> {format_balance(win_amount)}",
             parse_mode=ParseMode.HTML
         )
     else:
         update_stats(user_id, lost=bet)
         
         await message.answer(
-            f"🎲 <b>Кости!</b>\n\n"
-            f"🎯 Выпало: <b>{d1}</b> и <b>{d2}</b> = <b>{total}</b>\n"
-            f"❌ <b>Ты проиграл</b> {format_balance(bet)}",
+            f"{get_emoji('dice')} <b>Кости!</b>\n\n"
+            f"{get_emoji('star')} Выпало: <b>{d1}</b> и <b>{d2}</b> = <b>{total}</b>\n"
+            f"{get_emoji('cross')} <b>Ты проиграл</b> {format_balance(bet)}",
             parse_mode=ParseMode.HTML
         )
 
@@ -750,7 +822,7 @@ async def tower_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) != 2:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>башня 500</code>\n"
             "Пример: <code>башня все</code>",
             parse_mode=ParseMode.HTML
@@ -766,11 +838,11 @@ async def tower_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     update_balance(user_id, -bet)
@@ -796,10 +868,10 @@ async def tower_text_handler(message: types.Message):
     keyboard = build_tower_keyboard(user_id, game_id)
     
     await message.answer(
-        f"🏯 <b>Игра Башня!</b>\n\n"
-        f"💸 Ставка: {format_balance(bet)}\n"
-        f"🪜 Уровень: 1/9\n"
-        f"💰 Возможный выигрыш: {format_balance(int(bet * TOWER_MULTIPLIERS[0]))} (x{TOWER_MULTIPLIERS[0]:.2f})\n\n"
+        f"{get_emoji('tower')} <b>Игра Башня!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(bet)}\n"
+        f"{get_emoji('level')} Уровень: 1/9\n"
+        f"{get_emoji('money')} Возможный выигрыш: {format_balance(int(bet * TOWER_MULTIPLIERS[0]))} (x{TOWER_MULTIPLIERS[0]:.2f})\n\n"
         f"Выбери ячейку:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -821,7 +893,7 @@ async def gold_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) != 2:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>золото 500</code>\n"
             "Пример: <code>золото все</code>",
             parse_mode=ParseMode.HTML
@@ -837,11 +909,11 @@ async def gold_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     update_balance(user_id, -bet)
@@ -861,10 +933,10 @@ async def gold_text_handler(message: types.Message):
     keyboard = build_gold_keyboard(user_id, game_id, 0)
     
     await message.answer(
-        f"⛏️ <b>Игра Золото!</b>\n\n"
-        f"💸 Ставка: {format_balance(bet)}\n"
-        f"🪜 Уровень: 1/12\n"
-        f"💰 Возможный выигрыш: {format_balance(bet * 2)} (x2)\n\n"
+        f"{get_emoji('gold')} <b>Игра Золото!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(bet)}\n"
+        f"{get_emoji('level')} Уровень: 1/12\n"
+        f"{get_emoji('money')} Возможный выигрыш: {format_balance(bet * 2)} (x2)\n\n"
         f"Выбери ячейку:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -886,7 +958,7 @@ async def mines_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) not in [2, 3]:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>мины 500 3</code>\n"
             "Пример: <code>мины все</code>",
             parse_mode=ParseMode.HTML
@@ -897,7 +969,7 @@ async def mines_text_handler(message: types.Message):
     mines_count = int(args[2]) if len(args) == 3 else 3
     
     if mines_count < 1 or mines_count > 6:
-        await message.answer("❌ Количество мин должно быть от 1 до 6")
+        await message.answer(f"{get_emoji('cross')} Количество мин должно быть от 1 до 6")
         return
     
     balance = get_balance(user_id)
@@ -908,11 +980,11 @@ async def mines_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     update_balance(user_id, -bet)
@@ -933,10 +1005,10 @@ async def mines_text_handler(message: types.Message):
     keyboard = build_mines_keyboard(game_id)
     
     await message.answer(
-        f"💣 <b>Игра Мины!</b>\n\n"
-        f"💸 Ставка: {format_balance(bet)}\n"
-        f"💣 Мин: {mines_count}\n"
-        f"❔ Открыто: 0/25\n\n"
+        f"{get_emoji('mine')} <b>Игра Мины!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(bet)}\n"
+        f"{get_emoji('mine_field')} Мин: {mines_count}\n"
+        f"{get_emoji('question')} Открыто: 0/25\n\n"
         f"Выбери ячейку:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -958,7 +1030,7 @@ async def diamond_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) != 3:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>алмазы 500 1</code>\n"
             "Пример: <code>алмазы все 2</code>",
             parse_mode=ParseMode.HTML
@@ -969,7 +1041,7 @@ async def diamond_text_handler(message: types.Message):
     mines_count = int(args[2])
     
     if mines_count < 1 or mines_count > 2:
-        await message.answer("❌ Количество мин должно быть 1 или 2")
+        await message.answer(f"{get_emoji('cross')} Количество мин должно быть 1 или 2")
         return
     
     balance = get_balance(user_id)
@@ -980,11 +1052,11 @@ async def diamond_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     update_balance(user_id, -bet)
@@ -1012,10 +1084,10 @@ async def diamond_text_handler(message: types.Message):
     keyboard = build_diamond_keyboard(game_id)
     
     await message.answer(
-        f"💠 <b>Игра Алмазы!</b>\n\n"
-        f"💸 Ставка: {format_balance(bet)}\n"
-        f"💣 Мин в ряду: {mines_count}\n"
-        f"🪜 Уровень: 1/50\n\n"
+        f"{get_emoji('diamond')} <b>Игра Алмазы!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(bet)}\n"
+        f"{get_emoji('mine_field')} Мин в ряду: {mines_count}\n"
+        f"{get_emoji('level')} Уровень: 1/50\n\n"
         f"Выбери ячейку:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -1037,7 +1109,7 @@ async def chest_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) != 2:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>сундуки 500</code>\n"
             "Пример: <code>сундуки все</code>",
             parse_mode=ParseMode.HTML
@@ -1053,11 +1125,11 @@ async def chest_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     update_balance(user_id, -bet)
@@ -1066,16 +1138,16 @@ async def chest_text_handler(message: types.Message):
     
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="📦 Сундук 1", callback_data=f"chest:{user_id}:{correct}:1:{bet}")],
-            [InlineKeyboardButton(text="📦 Сундук 2", callback_data=f"chest:{user_id}:{correct}:2:{bet}")],
-            [InlineKeyboardButton(text="📦 Сундук 3", callback_data=f"chest:{user_id}:{correct}:3:{bet}")],
-            [InlineKeyboardButton(text="📦 Сундук 4", callback_data=f"chest:{user_id}:{correct}:4:{bet}")]
+            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 1", callback_data=f"chest:{user_id}:{correct}:1:{bet}")],
+            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 2", callback_data=f"chest:{user_id}:{correct}:2:{bet}")],
+            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 3", callback_data=f"chest:{user_id}:{correct}:3:{bet}")],
+            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 4", callback_data=f"chest:{user_id}:{correct}:4:{bet}")]
         ]
     )
     
     await message.answer(
-        f"📦 <b>Игра Сундуки!</b>\n\n"
-        f"💸 Ставка: {format_balance(bet)}\n"
+        f"{get_emoji('chest')} <b>Игра Сундуки!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(bet)}\n"
         f"Выбери сундук:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -1097,7 +1169,7 @@ async def duel_text_handler(message: types.Message):
     args = message.text.split()
     if len(args) != 2:
         await message.answer(
-            "❌ Неверный формат!\n"
+            f"{get_emoji('cross')} Неверный формат!\n"
             "Пример: <code>дуэль 500</code>\n"
             "Пример: <code>дуэль все</code>",
             parse_mode=ParseMode.HTML
@@ -1113,24 +1185,24 @@ async def duel_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer("❌ Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
         return
     
     if bet > balance:
-        await message.answer(f"❌ Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
         return
     
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text="✅ Принять дуэль",
+                    text=f"{get_emoji('check')} Принять дуэль",
                     callback_data=f"duel_accept:{user_id}:{bet}"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    text="❌ Отменить",
+                    text=f"{get_emoji('cross')} Отменить",
                     callback_data=f"duel_cancel:{user_id}"
                 )
             ]
@@ -1138,9 +1210,9 @@ async def duel_text_handler(message: types.Message):
     )
     
     await message.answer(
-        f"⚔️ <b>Дуэль!</b>\n\n"
-        f"👤 {message.from_user.first_name} вызывает на дуэль!\n"
-        f"💰 Ставка: {format_balance(bet)}",
+        f"{get_emoji('duel')} <b>Дуэль!</b>\n\n"
+        f"{get_emoji('user')} {message.from_user.first_name} вызывает на дуэль!\n"
+        f"{get_emoji('money')} Ставка: {format_balance(bet)}",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
     )
@@ -1154,24 +1226,24 @@ async def tower_choose_callback(callback: types.CallbackQuery):
     
     game = user_tower_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if game.get("lost", False):
-        await callback.answer("❌ Ты уже проиграл!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Ты уже проиграл!", show_alert=True)
         return
     
     level = game["level"]
     if level >= 9:
-        await callback.answer("❌ Игра уже завершена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра уже завершена!", show_alert=True)
         return
     
     if choice < 0 or choice > 4:
-        await callback.answer("❌ Неверный выбор!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Неверный выбор!", show_alert=True)
         return
     
     game["selected"].append(choice)
@@ -1183,8 +1255,8 @@ async def tower_choose_callback(callback: types.CallbackQuery):
         keyboard = build_final_tower_keyboard(game_id)
         
         await callback.message.edit_text(
-            f"💥 <b>Ты попал на мину!</b>\n\n"
-            f"💸 Ставка: {format_balance(game['bet'])}",
+            f"{get_emoji('bomb')} <b>Ты попал на мину!</b>\n\n"
+            f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}",
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML
         )
@@ -1202,8 +1274,8 @@ async def tower_choose_callback(callback: types.CallbackQuery):
         keyboard = build_final_tower_keyboard(game_id)
         
         await callback.message.edit_text(
-            f"🏆 <b>Поздравляем! Ты прошел башню!</b>\n\n"
-            f"💰 Выигрыш: {format_balance(win)} (x{TOWER_MULTIPLIERS[8]:.2f})",
+            f"{get_emoji('crown')} <b>Поздравляем! Ты прошел башню!</b>\n\n"
+            f"{get_emoji('money')} Выигрыш: {format_balance(win)} (x{TOWER_MULTIPLIERS[8]:.2f})",
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML
         )
@@ -1217,10 +1289,10 @@ async def tower_choose_callback(callback: types.CallbackQuery):
     keyboard = build_tower_keyboard(user_id, game_id)
     
     await callback.message.edit_text(
-        f"🏯 <b>Игра Башня!</b>\n\n"
-        f"💸 Ставка: {format_balance(game['bet'])}\n"
-        f"🪜 Уровень: {game['level'] + 1}/9\n"
-        f"💰 Возможный выигрыш: {format_balance(potential_win)} (x{multiplier:.2f})\n\n"
+        f"{get_emoji('tower')} <b>Игра Башня!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}\n"
+        f"{get_emoji('level')} Уровень: {game['level'] + 1}/9\n"
+        f"{get_emoji('money')} Возможный выигрыш: {format_balance(potential_win)} (x{multiplier:.2f})\n\n"
         f"Выбери ячейку:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -1233,20 +1305,20 @@ async def tower_collect_callback(callback: types.CallbackQuery):
     
     game = user_tower_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if game.get("lost", False):
-        await callback.answer("❌ Ты уже проиграл!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Ты уже проиграл!", show_alert=True)
         return
     
     level = game["level"]
     if level == 0:
-        await callback.answer("❌ Сделай хотя бы один ход!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Сделай хотя бы один ход!", show_alert=True)
         return
     
     multiplier = TOWER_MULTIPLIERS[level - 1]
@@ -1258,9 +1330,9 @@ async def tower_collect_callback(callback: types.CallbackQuery):
     keyboard = build_final_tower_keyboard(game_id)
     
     await callback.message.edit_text(
-        f"💰 <b>Ты забрал выигрыш!</b>\n\n"
-        f"💸 Ставка: {format_balance(game['bet'])}\n"
-        f"🎯 Выигрыш: {format_balance(win)} (x{multiplier:.2f})",
+        f"{get_emoji('money')} <b>Ты забрал выигрыш!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}\n"
+        f"{get_emoji('star')} Выигрыш: {format_balance(win)} (x{multiplier:.2f})",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
     )
@@ -1274,22 +1346,22 @@ async def tower_cancel_callback(callback: types.CallbackQuery):
     
     game = user_tower_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if game["level"] != 0:
-        await callback.answer("❌ Нельзя отменить после хода!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Нельзя отменить после хода!", show_alert=True)
         return
     
     update_balance(user_id, game["bet"])
     
     await callback.message.edit_text(
-        f"❌ <b>Игра отменена!</b>\n\n"
-        f"💸 Ставка возвращена: {format_balance(game['bet'])}",
+        f"{get_emoji('cross')} <b>Игра отменена!</b>\n\n"
+        f"{get_emoji('money')} Ставка возвращена: {format_balance(game['bet'])}",
         parse_mode=ParseMode.HTML
     )
     
@@ -1304,20 +1376,20 @@ async def gold_choose_callback(callback: types.CallbackQuery):
     
     game = user_gold_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if game.get("lost", False):
-        await callback.answer("❌ Ты уже проиграл!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Ты уже проиграл!", show_alert=True)
         return
     
     level = game["level"]
     if level >= 12:
-        await callback.answer("❌ Игра уже завершена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра уже завершена!", show_alert=True)
         return
     
     game["path"].append(choice)
@@ -1327,8 +1399,8 @@ async def gold_choose_callback(callback: types.CallbackQuery):
         update_stats(user_id, lost=game["bet"])
         
         await callback.message.edit_text(
-            f"💥 <b>Ты проиграл!</b>\n\n"
-            f"💸 Ставка: {format_balance(game['bet'])}",
+            f"{get_emoji('bomb')} <b>Ты проиграл!</b>\n\n"
+            f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}",
             parse_mode=ParseMode.HTML
         )
         
@@ -1343,8 +1415,8 @@ async def gold_choose_callback(callback: types.CallbackQuery):
         update_stats(user_id, won=win)
         
         await callback.message.edit_text(
-            f"🏆 <b>Поздравляем! Ты прошел игру!</b>\n\n"
-            f"💰 Выигрыш: {format_balance(win)} (x{GOLD_MULTIPLIERS[11]})",
+            f"{get_emoji('crown')} <b>Поздравляем! Ты прошел игру!</b>\n\n"
+            f"{get_emoji('money')} Выигрыш: {format_balance(win)} (x{GOLD_MULTIPLIERS[11]})",
             parse_mode=ParseMode.HTML
         )
         
@@ -1357,10 +1429,10 @@ async def gold_choose_callback(callback: types.CallbackQuery):
     keyboard = build_gold_keyboard(user_id, game_id, game["level"])
     
     await callback.message.edit_text(
-        f"⛏️ <b>Игра Золото!</b>\n\n"
-        f"💸 Ставка: {format_balance(game['bet'])}\n"
-        f"🪜 Уровень: {game['level'] + 1}/12\n"
-        f"💰 Возможный выигрыш: {format_balance(potential_win)} (x{multiplier})\n\n"
+        f"{get_emoji('gold')} <b>Игра Золото!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}\n"
+        f"{get_emoji('level')} Уровень: {game['level'] + 1}/12\n"
+        f"{get_emoji('money')} Возможный выигрыш: {format_balance(potential_win)} (x{multiplier})\n\n"
         f"Выбери ячейку:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -1373,16 +1445,16 @@ async def gold_collect_callback(callback: types.CallbackQuery):
     
     game = user_gold_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     level = game["level"]
     if level == 0:
-        await callback.answer("❌ Сделай хотя бы один ход!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Сделай хотя бы один ход!", show_alert=True)
         return
     
     multiplier = GOLD_MULTIPLIERS[level - 1]
@@ -1392,9 +1464,9 @@ async def gold_collect_callback(callback: types.CallbackQuery):
     update_stats(user_id, won=win)
     
     await callback.message.edit_text(
-        f"💰 <b>Ты забрал выигрыш!</b>\n\n"
-        f"💸 Ставка: {format_balance(game['bet'])}\n"
-        f"🎯 Выигрыш: {format_balance(win)} (x{multiplier})",
+        f"{get_emoji('money')} <b>Ты забрал выигрыш!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}\n"
+        f"{get_emoji('star')} Выигрыш: {format_balance(win)} (x{multiplier})",
         parse_mode=ParseMode.HTML
     )
     
@@ -1407,22 +1479,22 @@ async def gold_cancel_callback(callback: types.CallbackQuery):
     
     game = user_gold_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if game["level"] != 0:
-        await callback.answer("❌ Нельзя отменить после хода!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Нельзя отменить после хода!", show_alert=True)
         return
     
     update_balance(user_id, game["bet"])
     
     await callback.message.edit_text(
-        f"❌ <b>Игра отменена!</b>\n\n"
-        f"💸 Ставка возвращена: {format_balance(game['bet'])}",
+        f"{get_emoji('cross')} <b>Игра отменена!</b>\n\n"
+        f"{get_emoji('money')} Ставка возвращена: {format_balance(game['bet'])}",
         parse_mode=ParseMode.HTML
     )
     
@@ -1437,15 +1509,15 @@ async def mines_choose_callback(callback: types.CallbackQuery):
     
     game = user_mines_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if idx in game["opened"]:
-        await callback.answer("❌ Ячейка уже открыта!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Ячейка уже открыта!", show_alert=True)
         return
     
     if idx in game["mines"]:
@@ -1453,16 +1525,16 @@ async def mines_choose_callback(callback: types.CallbackQuery):
         
         final_field = ["❔"] * 25
         for i in game["opened"]:
-            final_field[i] = "🌀"
+            final_field[i] = f"{get_emoji('safe')}"
         for m in game["mines"]:
-            final_field[m] = "💣"
-        final_field[idx] = "💥"
+            final_field[m] = f"{get_emoji('mine_field')}"
+        final_field[idx] = f"{get_emoji('bomb')}"
         
         keyboard = build_final_mines_keyboard(final_field)
         
         await callback.message.edit_text(
-            f"💥 <b>Ты попал на мину!</b>\n\n"
-            f"💸 Ставка: {format_balance(game['bet'])}",
+            f"{get_emoji('bomb')} <b>Ты попал на мину!</b>\n\n"
+            f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}",
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML
         )
@@ -1471,7 +1543,7 @@ async def mines_choose_callback(callback: types.CallbackQuery):
         return
     
     game["opened"].append(idx)
-    game["field"][idx] = "🌀"
+    game["field"][idx] = f"{get_emoji('safe')}"
     
     opened = len(game["opened"])
     safe_needed = 25 - game["mines_count"]
@@ -1483,15 +1555,15 @@ async def mines_choose_callback(callback: types.CallbackQuery):
         
         final_field = ["❔"] * 25
         for i in game["opened"]:
-            final_field[i] = "🌀"
+            final_field[i] = f"{get_emoji('safe')}"
         for m in game["mines"]:
-            final_field[m] = "💣"
+            final_field[m] = f"{get_emoji('mine_field')}"
         
         keyboard = build_final_mines_keyboard(final_field)
         
         await callback.message.edit_text(
-            f"🏆 <b>Поздравляем! Ты прошел поле!</b>\n\n"
-            f"💰 Выигрыш: {format_balance(win)}",
+            f"{get_emoji('crown')} <b>Поздравляем! Ты прошел поле!</b>\n\n"
+            f"{get_emoji('money')} Выигрыш: {format_balance(win)}",
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML
         )
@@ -1502,10 +1574,10 @@ async def mines_choose_callback(callback: types.CallbackQuery):
     keyboard = build_mines_keyboard(game_id)
     
     await callback.message.edit_text(
-        f"💣 <b>Игра Мины!</b>\n\n"
-        f"💸 Ставка: {format_balance(game['bet'])}\n"
-        f"💣 Мин: {game['mines_count']}\n"
-        f"❔ Открыто: {opened}/25\n\n"
+        f"{get_emoji('mine')} <b>Игра Мины!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}\n"
+        f"{get_emoji('mine_field')} Мин: {game['mines_count']}\n"
+        f"{get_emoji('question')} Открыто: {opened}/25\n\n"
         f"Выбери ячейку:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -1518,16 +1590,16 @@ async def mines_collect_callback(callback: types.CallbackQuery):
     
     game = user_mines_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     opened = len(game["opened"])
     if opened == 0:
-        await callback.answer("❌ Сделай хотя бы один ход!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Сделай хотя бы один ход!", show_alert=True)
         return
     
     multiplier = 1 + (opened * 0.1)
@@ -1538,16 +1610,16 @@ async def mines_collect_callback(callback: types.CallbackQuery):
     
     final_field = ["❔"] * 25
     for i in game["opened"]:
-        final_field[i] = "🌀"
+        final_field[i] = f"{get_emoji('safe')}"
     for m in game["mines"]:
-        final_field[m] = "💣"
+        final_field[m] = f"{get_emoji('mine_field')}"
     
     keyboard = build_final_mines_keyboard(final_field)
     
     await callback.message.edit_text(
-        f"💰 <b>Ты забрал выигрыш!</b>\n\n"
-        f"💸 Ставка: {format_balance(game['bet'])}\n"
-        f"🎯 Выигрыш: {format_balance(win)} (x{multiplier:.2f})",
+        f"{get_emoji('money')} <b>Ты забрал выигрыш!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}\n"
+        f"{get_emoji('star')} Выигрыш: {format_balance(win)} (x{multiplier:.2f})",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
     )
@@ -1561,22 +1633,22 @@ async def mines_cancel_callback(callback: types.CallbackQuery):
     
     game = user_mines_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if len(game["opened"]) != 0:
-        await callback.answer("❌ Нельзя отменить после хода!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Нельзя отменить после хода!", show_alert=True)
         return
     
     update_balance(user_id, game["bet"])
     
     await callback.message.edit_text(
-        f"❌ <b>Игра отменена!</b>\n\n"
-        f"💸 Ставка возвращена: {format_balance(game['bet'])}",
+        f"{get_emoji('cross')} <b>Игра отменена!</b>\n\n"
+        f"{get_emoji('money')} Ставка возвращена: {format_balance(game['bet'])}",
         parse_mode=ParseMode.HTML
     )
     
@@ -1591,24 +1663,24 @@ async def diamond_choose_callback(callback: types.CallbackQuery):
     
     game = user_diamond_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if game.get("lost", False):
-        await callback.answer("❌ Ты уже проиграл!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Ты уже проиграл!", show_alert=True)
         return
     
     level = game["level"]
     if level >= 50:
-        await callback.answer("❌ Игра уже завершена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра уже завершена!", show_alert=True)
         return
     
     if choice < 0 or choice > 2:
-        await callback.answer("❌ Неверный выбор!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Неверный выбор!", show_alert=True)
         return
     
     game["selected"].append(choice)
@@ -1620,8 +1692,8 @@ async def diamond_choose_callback(callback: types.CallbackQuery):
         keyboard = build_diamond_keyboard(game_id)
         
         await callback.message.edit_text(
-            f"💥 <b>Ты попал на мину!</b>\n\n"
-            f"💸 Ставка: {format_balance(game['bet'])}",
+            f"{get_emoji('bomb')} <b>Ты попал на мину!</b>\n\n"
+            f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}",
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML
         )
@@ -1639,8 +1711,8 @@ async def diamond_choose_callback(callback: types.CallbackQuery):
         keyboard = build_diamond_keyboard(game_id)
         
         await callback.message.edit_text(
-            f"🏆 <b>Поздравляем! Ты прошел все уровни!</b>\n\n"
-            f"💰 Выигрыш: {format_balance(win)}",
+            f"{get_emoji('crown')} <b>Поздравляем! Ты прошел все уровни!</b>\n\n"
+            f"{get_emoji('money')} Выигрыш: {format_balance(win)}",
             reply_markup=keyboard,
             parse_mode=ParseMode.HTML
         )
@@ -1654,11 +1726,11 @@ async def diamond_choose_callback(callback: types.CallbackQuery):
     keyboard = build_diamond_keyboard(game_id)
     
     await callback.message.edit_text(
-        f"💠 <b>Игра Алмазы!</b>\n\n"
-        f"💸 Ставка: {format_balance(game['bet'])}\n"
-        f"💣 Мин в ряду: {game['mines_count']}\n"
-        f"🪜 Уровень: {game['level'] + 1}/50\n"
-        f"💰 Возможный выигрыш: {format_balance(potential_win)} (x{multiplier:.2f})\n\n"
+        f"{get_emoji('diamond')} <b>Игра Алмазы!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}\n"
+        f"{get_emoji('mine_field')} Мин в ряду: {game['mines_count']}\n"
+        f"{get_emoji('level')} Уровень: {game['level'] + 1}/50\n"
+        f"{get_emoji('money')} Возможный выигрыш: {format_balance(potential_win)} (x{multiplier:.2f})\n\n"
         f"Выбери ячейку:",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
@@ -1671,16 +1743,16 @@ async def diamond_collect_callback(callback: types.CallbackQuery):
     
     game = user_diamond_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     level = game["level"]
     if level == 0:
-        await callback.answer("❌ Сделай хотя бы один ход!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Сделай хотя бы один ход!", show_alert=True)
         return
     
     multiplier = 1 + (level * 0.03)
@@ -1692,9 +1764,9 @@ async def diamond_collect_callback(callback: types.CallbackQuery):
     keyboard = build_diamond_keyboard(game_id)
     
     await callback.message.edit_text(
-        f"💰 <b>Ты забрал выигрыш!</b>\n\n"
-        f"💸 Ставка: {format_balance(game['bet'])}\n"
-        f"🎯 Выигрыш: {format_balance(win)} (x{multiplier:.2f})",
+        f"{get_emoji('money')} <b>Ты забрал выигрыш!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(game['bet'])}\n"
+        f"{get_emoji('star')} Выигрыш: {format_balance(win)} (x{multiplier:.2f})",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
     )
@@ -1708,22 +1780,22 @@ async def diamond_cancel_callback(callback: types.CallbackQuery):
     
     game = user_diamond_games.get(game_id)
     if not game:
-        await callback.answer("❌ Игра не найдена!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Игра не найдена!", show_alert=True)
         return
     
     if game["user_id"] != user_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if game["level"] != 0:
-        await callback.answer("❌ Нельзя отменить после хода!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Нельзя отменить после хода!", show_alert=True)
         return
     
     update_balance(user_id, game["bet"])
     
     await callback.message.edit_text(
-        f"❌ <b>Игра отменена!</b>\n\n"
-        f"💸 Ставка возвращена: {format_balance(game['bet'])}",
+        f"{get_emoji('cross')} <b>Игра отменена!</b>\n\n"
+        f"{get_emoji('money')} Ставка возвращена: {format_balance(game['bet'])}",
         parse_mode=ParseMode.HTML
     )
     
@@ -1739,7 +1811,7 @@ async def chest_callback(callback: types.CallbackQuery):
     bet = int(parts[4])
     
     if user_id != owner_id:
-        await callback.answer("❌ Это не твоя игра!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Это не твоя игра!", show_alert=True)
         return
     
     if choice == correct:
@@ -1748,17 +1820,17 @@ async def chest_callback(callback: types.CallbackQuery):
         update_stats(user_id, won=win)
         
         await callback.message.edit_text(
-            f"🎉 <b>Ты угадал!</b>\n\n"
-            f"💰 Выигрыш: {format_balance(win)}",
+            f"{get_emoji('party')} <b>Ты угадал!</b>\n\n"
+            f"{get_emoji('money')} Выигрыш: {format_balance(win)}",
             parse_mode=ParseMode.HTML
         )
     else:
         update_stats(user_id, lost=bet)
         
         await callback.message.edit_text(
-            f"❌ <b>Ты не угадал!</b>\n\n"
-            f"💸 Ставка: {format_balance(bet)}\n"
-            f"📦 Правильный сундук: {correct}",
+            f"{get_emoji('cross')} <b>Ты не угадал!</b>\n\n"
+            f"{get_emoji('money')} Ставка: {format_balance(bet)}\n"
+            f"{get_emoji('chest')} Правильный сундук: {correct}",
             parse_mode=ParseMode.HTML
         )
 
@@ -1770,35 +1842,35 @@ async def duel_accept_callback(callback: types.CallbackQuery):
     opponent_id = callback.from_user.id
     
     if opponent_id == initiator_id:
-        await callback.answer("❌ Нельзя принять свою дуэль!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Нельзя принять свою дуэль!", show_alert=True)
         return
     
     initiator_balance = get_balance(initiator_id)
     opponent_balance = get_balance(opponent_id)
     
     if initiator_balance < bet:
-        await callback.answer("❌ У создателя нет денег!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} У создателя нет денег!", show_alert=True)
         return
     
     if opponent_balance < bet:
-        await callback.answer("❌ У тебя нет денег!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} У тебя нет денег!", show_alert=True)
         return
     
     update_balance(initiator_id, -bet)
     update_balance(opponent_id, -bet)
     
     await callback.message.edit_text(
-        f"⚔️ <b>Дуэль началась!</b>\n\n"
-        f"💰 Ставка: {format_balance(bet)}",
+        f"{get_emoji('duel')} <b>Дуэль началась!</b>\n\n"
+        f"{get_emoji('money')} Ставка: {format_balance(bet)}",
         parse_mode=ParseMode.HTML
     )
     
     d1 = random.randint(1, 6)
     d2 = random.randint(1, 6)
     
-    await callback.message.answer(f"🎲 Игрок 1 выбросил: <b>{d1}</b>", parse_mode=ParseMode.HTML)
+    await callback.message.answer(f"{get_emoji('dice')} Игрок 1 выбросил: <b>{d1}</b>", parse_mode=ParseMode.HTML)
     await asyncio.sleep(1)
-    await callback.message.answer(f"🎲 Игрок 2 выбросил: <b>{d2}</b>", parse_mode=ParseMode.HTML)
+    await callback.message.answer(f"{get_emoji('dice')} Игрок 2 выбросил: <b>{d2}</b>", parse_mode=ParseMode.HTML)
     await asyncio.sleep(1)
     
     if d1 > d2:
@@ -1807,8 +1879,8 @@ async def duel_accept_callback(callback: types.CallbackQuery):
         update_stats(opponent_id, lost=bet)
         
         await callback.message.answer(
-            f"🏆 <b>Победил игрок 1!</b>\n\n"
-            f"💰 Выигрыш: {format_balance(bet * 2)}",
+            f"{get_emoji('crown')} <b>Победил игрок 1!</b>\n\n"
+            f"{get_emoji('money')} Выигрыш: {format_balance(bet * 2)}",
             parse_mode=ParseMode.HTML
         )
     elif d2 > d1:
@@ -1817,8 +1889,8 @@ async def duel_accept_callback(callback: types.CallbackQuery):
         update_stats(initiator_id, lost=bet)
         
         await callback.message.answer(
-            f"🏆 <b>Победил игрок 2!</b>\n\n"
-            f"💰 Выигрыш: {format_balance(bet * 2)}",
+            f"{get_emoji('crown')} <b>Победил игрок 2!</b>\n\n"
+            f"{get_emoji('money')} Выигрыш: {format_balance(bet * 2)}",
             parse_mode=ParseMode.HTML
         )
     else:
@@ -1826,8 +1898,8 @@ async def duel_accept_callback(callback: types.CallbackQuery):
         update_balance(opponent_id, bet)
         
         await callback.message.answer(
-            f"🤝 <b>Ничья!</b>\n\n"
-            f"💸 Ставки возвращены",
+            f"{get_emoji('heart')} <b>Ничья!</b>\n\n"
+            f"{get_emoji('money')} Ставки возвращены",
             parse_mode=ParseMode.HTML
         )
 
@@ -1837,11 +1909,11 @@ async def duel_cancel_callback(callback: types.CallbackQuery):
     initiator_id = int(callback.data.split(":")[1])
     
     if user_id != initiator_id:
-        await callback.answer("❌ Только создатель может отменить!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Только создатель может отменить!", show_alert=True)
         return
     
     await callback.message.edit_text(
-        f"❌ <b>Дуэль отменена!</b>",
+        f"{get_emoji('cross')} <b>Дуэль отменена!</b>",
         parse_mode=ParseMode.HTML
     )
 
@@ -1854,23 +1926,23 @@ async def admin_add_coins_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     if not message.reply_to_message:
-        await message.answer("❌ Ответьте на сообщение пользователя, которому хотите начислить монеты.")
+        await message.answer(f"{get_emoji('cross')} Ответьте на сообщение пользователя, которому хотите начислить монеты.")
         return
     
     args = message.text.split()
     if len(args) != 2:
-        await message.answer("❌ Использование: /hhh [сумма]\nПример: /hhh 1000")
+        await message.answer(f"{get_emoji('cross')} Использование: /hhh [сумма]\nПример: /hhh 1000")
         return
     
     recipient_id = message.reply_to_message.from_user.id
     amount = parse_bet(args[1])
     
     if amount <= 0:
-        await message.answer("❌ Неверная сумма!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма!")
         return
     
     update_balance(recipient_id, amount)
@@ -1878,7 +1950,7 @@ async def admin_add_coins_handler(message: types.Message):
     recipient_name = message.reply_to_message.from_user.first_name
     
     await message.answer(
-        f"✅ Начислено {format_balance(amount)} монет пользователю {recipient_name}",
+        f"{get_emoji('check')} Начислено {format_balance(amount)} монет пользователю {recipient_name}",
         parse_mode=ParseMode.HTML
     )
 
@@ -1887,29 +1959,29 @@ async def admin_clear_balance_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     args = message.text.split()
     if len(args) != 2:
-        await message.answer("❌ Использование: /clear_b [ID]\nПример: /clear_b 123456789")
+        await message.answer(f"{get_emoji('cross')} Использование: /clear_b [ID]\nПример: /clear_b 123456789")
         return
     
     try:
         target_id = int(args[1])
     except:
-        await message.answer("❌ Неверный ID!")
+        await message.answer(f"{get_emoji('cross')} Неверный ID!")
         return
     
     if not is_user_registered(target_id):
-        await message.answer("❌ Пользователь не найден!")
+        await message.answer(f"{get_emoji('cross')} Пользователь не найден!")
         return
     
     current_balance = get_balance(target_id)
     update_balance(target_id, -current_balance)
     
     await message.answer(
-        f"✅ Баланс пользователя {target_id} обнулен!",
+        f"{get_emoji('check')} Баланс пользователя {target_id} обнулен!",
         parse_mode=ParseMode.HTML
     )
 
@@ -1918,34 +1990,34 @@ async def admin_ban_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     args = message.text.split()
     if len(args) != 2:
-        await message.answer("❌ Использование: /ban [ID]\nПример: /ban 123456789")
+        await message.answer(f"{get_emoji('cross')} Использование: /ban [ID]\nПример: /ban 123456789")
         return
     
     try:
         target_id = int(args[1])
     except:
-        await message.answer("❌ Неверный ID!")
+        await message.answer(f"{get_emoji('cross')} Неверный ID!")
         return
     
     if target_id == ADMIN_ID or target_id == ADMIN_ID_2:
-        await message.answer("❌ Нельзя забанить админа!")
+        await message.answer(f"{get_emoji('cross')} Нельзя забанить админа!")
         return
     
     if target_id in ADMINS:
-        await message.answer("❌ Нельзя забанить админа!")
+        await message.answer(f"{get_emoji('cross')} Нельзя забанить админа!")
         return
     
     if not is_user_registered(target_id):
-        await message.answer("❌ Пользователь не найден!")
+        await message.answer(f"{get_emoji('cross')} Пользователь не найден!")
         return
     
     await message.answer(
-        f"✅ Пользователь {target_id} забанен!",
+        f"{get_emoji('ban')} Пользователь {target_id} забанен!",
         parse_mode=ParseMode.HTML
     )
 
@@ -1954,22 +2026,22 @@ async def admin_unban_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     args = message.text.split()
     if len(args) != 2:
-        await message.answer("❌ Использование: /unban [ID]\nПример: /unban 123456789")
+        await message.answer(f"{get_emoji('cross')} Использование: /unban [ID]\nПример: /unban 123456789")
         return
     
     try:
         target_id = int(args[1])
     except:
-        await message.answer("❌ Неверный ID!")
+        await message.answer(f"{get_emoji('cross')} Неверный ID!")
         return
     
     await message.answer(
-        f"✅ Пользователь {target_id} разбанен!",
+        f"{get_emoji('unban')} Пользователь {target_id} разбанен!",
         parse_mode=ParseMode.HTML
     )
 
@@ -1978,22 +2050,22 @@ async def admin_clear_user_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     args = message.text.split()
     if len(args) != 2:
-        await message.answer("❌ Использование: /clear [ID]\nПример: /clear 123456789")
+        await message.answer(f"{get_emoji('cross')} Использование: /clear [ID]\nПример: /clear 123456789")
         return
     
     try:
         target_id = int(args[1])
     except:
-        await message.answer("❌ Неверный ID!")
+        await message.answer(f"{get_emoji('cross')} Неверный ID!")
         return
     
     if not is_user_registered(target_id):
-        await message.answer("❌ Пользователь не найден!")
+        await message.answer(f"{get_emoji('cross')} Пользователь не найден!")
         return
     
     current_balance = get_balance(target_id)
@@ -2001,7 +2073,7 @@ async def admin_clear_user_handler(message: types.Message):
     update_stats(target_id, won=0, lost=0)
     
     await message.answer(
-        f"✅ Данные пользователя {target_id} очищены!",
+        f"{get_emoji('clear')} Данные пользователя {target_id} очищены!",
         parse_mode=ParseMode.HTML
     )
 
@@ -2010,30 +2082,30 @@ async def admin_get_user_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     args = message.text.split()
     if len(args) != 2:
-        await message.answer("❌ Использование: /get [ID]\nПример: /get 123456789")
+        await message.answer(f"{get_emoji('cross')} Использование: /get [ID]\nПример: /get 123456789")
         return
     
     try:
         target_id = int(args[1])
     except:
-        await message.answer("❌ Неверный ID!")
+        await message.answer(f"{get_emoji('cross')} Неверный ID!")
         return
     
     if not is_user_registered(target_id):
-        await message.answer("❌ Пользователь не найден!")
+        await message.answer(f"{get_emoji('cross')} Пользователь не найден!")
         return
     
     balance = get_balance(target_id)
     
     await message.answer(
-        f"🆔 <b>Информация о пользователе {target_id}</b>\n\n"
-        f"💰 Баланс: {format_balance(balance)} монет\n"
-        f"📊 Статус: Пользователь",
+        f"{get_emoji('user')} <b>Информация о пользователе {target_id}</b>\n\n"
+        f"{get_emoji('money')} Баланс: {format_balance(balance)} монет\n"
+        f"{get_emoji('registered')} Статус: Пользователь",
         parse_mode=ParseMode.HTML
     )
 
@@ -2042,30 +2114,30 @@ async def admin_data_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     args = message.text.split()
     if len(args) != 2:
-        await message.answer("❌ Использование: /data [ID]\nПример: /data 123456789")
+        await message.answer(f"{get_emoji('cross')} Использование: /data [ID]\nПример: /data 123456789")
         return
     
     try:
         target_id = int(args[1])
     except:
-        await message.answer("❌ Неверный ID!")
+        await message.answer(f"{get_emoji('cross')} Неверный ID!")
         return
     
     if not is_user_registered(target_id):
-        await message.answer("❌ Пользователь не найден!")
+        await message.answer(f"{get_emoji('cross')} Пользователь не найден!")
         return
     
     balance = get_balance(target_id)
     
     await message.answer(
-        f"📊 <b>Данные пользователя {target_id}</b>\n\n"
-        f"💰 Баланс: {balance}\n"
-        f"💳 Форматированный: {format_balance(balance)}",
+        f"{get_emoji('registered')} <b>Данные пользователя {target_id}</b>\n\n"
+        f"{get_emoji('money')} Баланс: {balance}\n"
+        f"{get_emoji('balance')} Форматированный: {format_balance(balance)}",
         parse_mode=ParseMode.HTML
     )
 
@@ -2074,17 +2146,17 @@ async def admin_broadcast_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     args = message.text.split(maxsplit=1)
     if len(args) != 2:
-        await message.answer("❌ Использование: /rass [текст]\nПример: /rass Всем привет!")
+        await message.answer(f"{get_emoji('cross')} Использование: /rass [текст]\nПример: /rass Всем привет!")
         return
     
     broadcast_text = args[1]
     
-    await message.answer(f"📢 <b>Рассылка запущена!</b>\n\nТекст: {broadcast_text}", parse_mode=ParseMode.HTML)
+    await message.answer(f"{get_emoji('broadcast')} <b>Рассылка запущена!</b>\n\nТекст: {broadcast_text}", parse_mode=ParseMode.HTML)
     
     sent = 0
     
@@ -2104,43 +2176,43 @@ async def admin_broadcast_handler(message: types.Message):
             except:
                 pass
         
-        await message.answer(f"✅ Рассылка завершена!\nОтправлено: {sent} пользователям")
+        await message.answer(f"{get_emoji('check')} Рассылка завершена!\nОтправлено: {sent} пользователям")
     except Exception as e:
-        await message.answer(f"❌ Ошибка при рассылке: {e}")
+        await message.answer(f"{get_emoji('cross')} Ошибка при рассылке: {e}")
 
 @dp.message(Command("admin_send_message"))
 async def admin_send_message_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     args = message.text.split()
     if len(args) < 3:
-        await message.answer("❌ Использование: /admin_send_message [ID] [текст]")
+        await message.answer(f"{get_emoji('cross')} Использование: /admin_send_message [ID] [текст]")
         return
     
     try:
         target_id = int(args[1])
     except:
-        await message.answer("❌ Неверный ID!")
+        await message.answer(f"{get_emoji('cross')} Неверный ID!")
         return
     
     if not is_user_registered(target_id):
-        await message.answer("❌ Пользователь не найден!")
+        await message.answer(f"{get_emoji('cross')} Пользователь не найден!")
         return
     
     text = " ".join(args[2:])
     if not text:
-        await message.answer("❌ Введите текст сообщения!")
+        await message.answer(f"{get_emoji('cross')} Введите текст сообщения!")
         return
     
     try:
         await bot.send_message(target_id, text, parse_mode=ParseMode.HTML)
-        await message.answer(f"✅ Сообщение отправлено пользователю {target_id}")
+        await message.answer(f"{get_emoji('send')} Сообщение отправлено пользователю {target_id}")
     except Exception as e:
-        await message.answer(f"❌ Ошибка при отправке: {e}")
+        await message.answer(f"{get_emoji('cross')} Ошибка при отправке: {e}")
 
 @dp.message(Command("info"))
 async def info_handler(message: types.Message):
@@ -2150,44 +2222,44 @@ async def info_handler(message: types.Message):
     user_id = message.from_user.id
     
     if not is_admin(user_id):
-        await message.answer("⛔ У вас нет доступа к этой команде.")
+        await message.answer(f"{get_emoji('cross')} У вас нет доступа к этой команде.")
         return
     
     total_users = get_total_users()
-    await message.answer(f"📊 <b>Статистика бота</b>\n\n👥 Всего зарегистрированных пользователей: <b>{total_users}</b>", parse_mode=ParseMode.HTML)
+    await message.answer(f"{get_emoji('registered')} <b>Статистика бота</b>\n\n{get_emoji('user')} Всего зарегистрированных пользователей: <b>{total_users}</b>", parse_mode=ParseMode.HTML)
 
 @dp.callback_query(lambda c: c.data == "play")
 async def play_callback(callback: types.CallbackQuery):
     user_id = callback.from_user.id
     
     if not is_user_registered(user_id):
-        await callback.answer("❌ Вы не зарегистрированы!", show_alert=True)
+        await callback.answer(f"{get_emoji('cross')} Вы не зарегистрированы!", show_alert=True)
         return
     
     await callback.answer()
     await callback.message.answer(
-        "🎮 <b>Все игры GMPire:</b>\n\n"
-        "🎰 <b>Рулетка</b> - рул [сумма] [ставка]\n"
-        "   Ставки: красное, черное, четное, нечетное\n"
-        "   Пример: рул 500 красное\n\n"
-        "🚀 <b>Краш</b> - краш [сумма] [множитель]\n"
-        "   Пример: краш 100 2.5\n\n"
-        "🎲 <b>Кости</b> - кости [сумма] [м|б|равно]\n"
-        "   Пример: кости 500 б\n\n"
-        "🏯 <b>Башня</b> - башня [сумма]\n"
-        "   Пример: башня 500\n\n"
-        "⛏️ <b>Золото</b> - золото [сумма]\n"
-        "   Пример: золото 500\n\n"
-        "💣 <b>Мины</b> - мины [сумма] [мин]\n"
-        "   Пример: мины 500 3\n\n"
-        "💠 <b>Алмазы</b> - алмазы [сумма] [мин]\n"
-        "   Пример: алмазы 500 1\n\n"
-        "📦 <b>Сундуки</b> - сундуки [сумма]\n"
-        "   Пример: сундуки 500\n\n"
-        "⚔️ <b>Дуэль</b> - дуэль [сумма]\n"
-        "   Пример: дуэль 500\n\n"
-        "💰 <b>Баланс</b> - б или баланс\n"
-        "🎁 <b>Бонус</b> - бонус",
+        f"{get_emoji('game')} <b>Все игры GMPire:</b>\n\n"
+        f"{get_emoji('roulette')} <b>Рулетка</b> - рул [сумма] [ставка]\n"
+        f"   Ставки: красное, черное, четное, нечетное\n"
+        f"   Пример: рул 500 красное\n\n"
+        f"{get_emoji('rocket')} <b>Краш</b> - краш [сумма] [множитель]\n"
+        f"   Пример: краш 100 2.5\n\n"
+        f"{get_emoji('dice')} <b>Кости</b> - кости [сумма] [м|б|равно]\n"
+        f"   Пример: кости 500 б\n\n"
+        f"{get_emoji('tower')} <b>Башня</b> - башня [сумма]\n"
+        f"   Пример: башня 500\n\n"
+        f"{get_emoji('gold')} <b>Золото</b> - золото [сумма]\n"
+        f"   Пример: золото 500\n\n"
+        f"{get_emoji('mine')} <b>Мины</b> - мины [сумма] [мин]\n"
+        f"   Пример: мины 500 3\n\n"
+        f"{get_emoji('diamond')} <b>Алмазы</b> - алмазы [сумма] [мин]\n"
+        f"   Пример: алмазы 500 1\n\n"
+        f"{get_emoji('chest')} <b>Сундуки</b> - сундуки [сумма]\n"
+        f"   Пример: сундуки 500\n\n"
+        f"{get_emoji('duel')} <b>Дуэль</b> - дуэль [сумма]\n"
+        f"   Пример: дуэль 500\n\n"
+        f"{get_emoji('money')} <b>Баланс</b> - б или баланс\n"
+        f"{get_emoji('bonus')} <b>Бонус</b> - бонус",
         parse_mode=ParseMode.HTML
     )
 
