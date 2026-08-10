@@ -60,19 +60,19 @@ CUSTOM_EMOJIS = {
     "lock": '<tg-emoji emoji-id="5197288647275071607">🔒</tg-emoji>',
     "unlock": '<tg-emoji emoji-id="5197288647275071607">🔓</tg-emoji>',
     "warning": '<tg-emoji emoji-id="5807697589885212714">⚠️</tg-emoji>',
-    "info": '<tg-emoji emoji-id="">ℹ️</tg-emoji>',
-    "help": '<tg-emoji emoji-id="">🆘</tg-emoji>',
+    "info": '<tg-emoji emoji-id="5334544901428229844">ℹ️</tg-emoji>',
+    "help": '<tg-emoji emoji-id="5807411437689116840">🆘</tg-emoji>',
     "admin": '<tg-emoji emoji-id="5217822164362739968">👑</tg-emoji>',
     "user": '<tg-emoji emoji-id="">👤</tg-emoji>',
     "registered": '<tg-emoji emoji-id="5231200819986047254">📊</tg-emoji>',
     "send": '<tg-emoji emoji-id="5388632425314140043">📨</tg-emoji>',
     "broadcast": '<tg-emoji emoji-id="5388632425314140043">📢</tg-emoji>',
     "ban": '<tg-emoji emoji-id="5240241223632954241">🚫</tg-emoji>',
-    "clear": '<tg-emoji emoji-id="">🗑️</tg-emoji>',
-    "reset": '<tg-emoji emoji-id="">🔄</tg-emoji>',
+    "clear": '<tg-emoji emoji-id="5019500511871632068">🗑️</tg-emoji>',
+    "reset": '<tg-emoji emoji-id="5017470156276761427">🔄</tg-emoji>',
     "add": '<tg-emoji emoji-id="">➕</tg-emoji>',
     "remove": '<tg-emoji emoji-id="">➖</tg-emoji>',
-    "settings": '<tg-emoji emoji-id="">⚙️</tg-emoji>',
+    "settings": '<tg-emoji emoji-id="5818705028424141605">⚙️</tg-emoji>',
     "game": '<tg-emoji emoji-id="5260334416378496293">🎮</tg-emoji>',
     "play": '<tg-emoji emoji-id="">▶️</tg-emoji>',
     "stop": '<tg-emoji emoji-id="">⏹️</tg-emoji>',
@@ -83,20 +83,20 @@ CUSTOM_EMOJIS = {
     "down": '<tg-emoji emoji-id="">⬇️</tg-emoji>',
     "left": '<tg-emoji emoji-id="">⬅️</tg-emoji>',
     "right": '<tg-emoji emoji-id="">➡️</tg-emoji>',
-    "medal": '<tg-emoji emoji-id="">🥇</tg-emoji>',
-    "medal2": '<tg-emoji emoji-id="">🥈</tg-emoji>',
-    "medal3": '<tg-emoji emoji-id="">🥉</tg-emoji>',
+    "medal": '<tg-emoji emoji-id="5440539497383087970">🥇</tg-emoji>',
+    "medal2": '<tg-emoji emoji-id="5447203607294265305">🥈</tg-emoji>',
+    "medal3": '<tg-emoji emoji-id="5453902265922376865">🥉</tg-emoji>',
     "gift": '<tg-emoji emoji-id="5907810849504727013">🎁</tg-emoji>',
-    "party": '<tg-emoji emoji-id="">🎉</tg-emoji>',
+    "party": '<tg-emoji emoji-id="5461151367559141950">🎉</tg-emoji>',
     "sad": '<tg-emoji emoji-id="">😔</tg-emoji>',
     "happy": '<tg-emoji emoji-id="">😊</tg-emoji>',
     "cool": '<tg-emoji emoji-id="">😎</tg-emoji>',
     "heart": '<tg-emoji emoji-id="">❤️</tg-emoji>',
-    "lightning": '<tg-emoji emoji-id="">⚡</tg-emoji>',
-    "clock": '<tg-emoji emoji-id="">⏰</tg-emoji>',
+    "lightning": '<tg-emoji emoji-id="5456140674028019486">⚡</tg-emoji>',
+    "clock": '<tg-emoji emoji-id="5440621591387980068">⏰</tg-emoji>',
     "calendar": '<tg-emoji emoji-id="">📅</tg-emoji>',
     "time": '<tg-emoji emoji-id="">⏳</tg-emoji>',
-    "percent": '<tg-emoji emoji-id="">💯</tg-emoji>',
+    "percent": '<tg-emoji emoji-id="5341498088408234504">💯</tg-emoji>',
     "level": '<tg-emoji emoji-id="">🪜</tg-emoji>'
 }
 
@@ -595,7 +595,7 @@ async def crash_text_handler(message: types.Message):
     try:
         multiplier = float(args[2].replace(",", "."))
     except:
-        await message.answer(f"{get_emoji('cross')} Неверный множитель!")
+        await message.answer(f"{get_emoji('cross')} Неверный множитель!", parse_mode=ParseMode.HTML)
         parse_mode=ParseMode.HTML
         return
     
@@ -611,7 +611,7 @@ async def crash_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         parse_mode=ParseMode.HTML
         return
     
@@ -697,11 +697,11 @@ async def roulette_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}",parse_mode=ParseMode.HTML)
         return
     
     number = random.randint(0, 36)
@@ -811,11 +811,11 @@ async def dice_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}", parse_mode=ParseMode.HTML)
         return
     
     d1 = random.randint(1, 6)
@@ -888,11 +888,11 @@ async def tower_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}", parse_mode=ParseMode.HTML)
         return
     
     update_balance(user_id, -bet)
@@ -959,11 +959,11 @@ async def gold_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}", parse_mode=ParseMode.HTML)
         return
     
     update_balance(user_id, -bet)
@@ -1030,11 +1030,11 @@ async def mines_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}", parse_mode=ParseMode.HTML)
         return
     
     update_balance(user_id, -bet)
@@ -1102,11 +1102,11 @@ async def diamond_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}", parse_mode=ParseMode.HTML)
         return
     
     update_balance(user_id, -bet)
@@ -1175,11 +1175,11 @@ async def chest_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}", parse_mode=ParseMode.HTML)
         return
     
     update_balance(user_id, -bet)
@@ -1235,11 +1235,11 @@ async def duel_text_handler(message: types.Message):
         bet = parse_bet(bet_str)
     
     if bet <= 0:
-        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!")
+        await message.answer(f"{get_emoji('cross')} Неверная сумма ставки!", parse_mode=ParseMode.HTML)
         return
     
     if bet > balance:
-        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}")
+        await message.answer(f"{get_emoji('cross')} Недостаточно средств! Ваш баланс: {format_balance(balance)}", parse_mode=ParseMode.HTML)
         return
     
     keyboard = InlineKeyboardMarkup(
