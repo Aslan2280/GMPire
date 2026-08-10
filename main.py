@@ -12,7 +12,7 @@ from database import init_db, add_user, is_user_registered, get_total_users, get
 
 TOKEN = "7968492757:AAGKGsHjyJe6JMEtdnYqLx5tTi4faaD0jSc"
 ADMIN_ID = 6025818386
-ADMIN_ID_2 = 6539341659
+ADMIN_ID_2 = 123456789
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -52,7 +52,7 @@ CUSTOM_EMOJIS = {
     "safe": '<tg-emoji emoji-id="">🌀</tg-emoji>',
     "bomb": '<tg-emoji emoji-id="5276032951342088188">💥</tg-emoji>',
     "mine_field": '<tg-emoji emoji-id="5454225015534805938">💣</tg-emoji>',
-    "empty": '<tg-emoji emoji-id="▫️">▫️</tg-emoji>',
+    "empty": '<tg-emoji emoji-id="">▫️</tg-emoji>',
     "crown": '<tg-emoji emoji-id="5280769763398671636">🏆</tg-emoji>',
     "star": '<tg-emoji emoji-id="5438496463044752972">⭐</tg-emoji>',
     "fire": '<tg-emoji emoji-id="5424972470023104089">🔥</tg-emoji>',
@@ -60,10 +60,10 @@ CUSTOM_EMOJIS = {
     "lock": '<tg-emoji emoji-id="5197288647275071607">🔒</tg-emoji>',
     "unlock": '<tg-emoji emoji-id="5197288647275071607">🔓</tg-emoji>',
     "warning": '<tg-emoji emoji-id="5807697589885212714">⚠️</tg-emoji>',
-    "info": '<tg-emoji emoji-id="ℹ️">ℹ️</tg-emoji>',
-    "help": '<tg-emoji emoji-id="🆘">🆘</tg-emoji>',
+    "info": '<tg-emoji emoji-id="">ℹ️</tg-emoji>',
+    "help": '<tg-emoji emoji-id="">🆘</tg-emoji>',
     "admin": '<tg-emoji emoji-id="5217822164362739968">👑</tg-emoji>',
-    "user": '<tg-emoji emoji-id=👤"">👤</tg-emoji>',
+    "user": '<tg-emoji emoji-id="">👤</tg-emoji>',
     "registered": '<tg-emoji emoji-id="5231200819986047254">📊</tg-emoji>',
     "send": '<tg-emoji emoji-id="5388632425314140043">📨</tg-emoji>',
     "broadcast": '<tg-emoji emoji-id="5388632425314140043">📢</tg-emoji>',
@@ -99,8 +99,49 @@ CUSTOM_EMOJIS = {
     "percent": '<tg-emoji emoji-id="">💯</tg-emoji>',
     "level": '<tg-emoji emoji-id="">🪜</tg-emoji>'
 }
+
+EMOJI_IDS = {
+    "rocket": "5283080528818360566",
+    "chart_up": "5373001317042101552",
+    "chart_down": "5361748661640372834",
+    "check": "5021905410089550576",
+    "cross": "5019523782004441717",
+    "dice": "5260547274957672345",
+    "roulette": "5235989279024373566",
+    "gold": "5197371802136892976",
+    "mine": "5454225015534805938",
+    "diamond": "5956031393623445676",
+    "duel": "5454014806950429357",
+    "money": "5224257782013769471",
+    "balance": "5445353829304387411",
+    "bonus": "5348297073177406710",
+    "question": "5436113877181941026",
+    "bomb": "5276032951342088188",
+    "sparkles": "5219834485389927168",
+    "lock": "5197288647275071607",
+    "unlock": "5197288647275071607",
+    "warning": "5807697589885212714",
+    "ban": "5240241223632954241",
+    "game": "5260334416378496293",
+    "play": "5350612670435313545",
+    "party": "5352660205939890989",
+    "crown": "5280769763398671636",
+    "star": "5438496463044752972",
+    "fire": "5424972470023104089",
+    "admin": "5217822164362739968",
+    "registered": "5231200819986047254",
+    "send": "5388632425314140043",
+    "broadcast": "5388632425314140043",
+    "add": "5907797234210930711",
+    "remove": "5907798295064081354",
+    "gift": "5907810849504727013"
+}
+
 def get_emoji(key: str) -> str:
     return CUSTOM_EMOJIS.get(key, "❔")
+
+def get_emoji_id(key: str) -> str:
+    return EMOJI_IDS.get(key, "")
 
 def is_private_chat(message: types.Message) -> bool:
     return message.chat.type == ChatType.PRIVATE
@@ -143,7 +184,8 @@ async def send_unregistered_warning(message: types.Message):
             [
                 InlineKeyboardButton(
                     text=f"{get_emoji('unlock')} Зарегистрироваться",
-                    url=f"https://t.me/{BOT_USERNAME}?start=none"
+                    url=f"https://t.me/{BOT_USERNAME}?start=none",
+                    icon_custom_emoji_id=get_emoji_id("unlock")
                 )
             ]
         ]
@@ -172,26 +214,26 @@ def build_tower_keyboard(user_id: int, game_id: str) -> InlineKeyboardMarkup:
     
     kb = []
     kb.append([
-        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:0"),
-        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:1"),
-        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:2"),
-        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:3"),
-        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:4")
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:0", icon_custom_emoji_id=get_emoji_id("question")),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:1", icon_custom_emoji_id=get_emoji_id("question")),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:2", icon_custom_emoji_id=get_emoji_id("question")),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:3", icon_custom_emoji_id=get_emoji_id("question")),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"tower:{game_id}:4", icon_custom_emoji_id=get_emoji_id("question"))
     ])
     
     for i in range(level - 1, -1, -1):
         row = []
         for j in range(5):
             if i < len(selected) and selected[i] == j:
-                row.append(InlineKeyboardButton(text=f"{get_emoji('safe')}", callback_data="noop"))
+                row.append(InlineKeyboardButton(text=f"{get_emoji('safe')}", callback_data="noop", icon_custom_emoji_id=get_emoji_id("safe")))
             else:
-                row.append(InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data="noop"))
+                row.append(InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data="noop", icon_custom_emoji_id=get_emoji_id("question")))
         kb.append(row)
     
     if level == 0:
-        kb.append([InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"tower_cancel:{game_id}")])
+        kb.append([InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"tower_cancel:{game_id}", icon_custom_emoji_id=get_emoji_id("cross"))])
     else:
-        kb.append([InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"tower_collect:{game_id}")])
+        kb.append([InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"tower_collect:{game_id}", icon_custom_emoji_id=get_emoji_id("money"))])
     
     return InlineKeyboardMarkup(inline_keyboard=kb)
 
@@ -218,13 +260,13 @@ def build_final_tower_keyboard(game_id: str) -> InlineKeyboardMarkup:
         for j in range(5):
             if lost and i < len(bombs) and bombs[i][j] == 1:
                 if i < len(selected) and selected[i] == j:
-                    row.append(InlineKeyboardButton(text=f"{get_emoji('bomb')}", callback_data="noop"))
+                    row.append(InlineKeyboardButton(text=f"{get_emoji('bomb')}", callback_data="noop", icon_custom_emoji_id=get_emoji_id("bomb")))
                 else:
-                    row.append(InlineKeyboardButton(text=f"{get_emoji('mine_field')}", callback_data="noop"))
+                    row.append(InlineKeyboardButton(text=f"{get_emoji('mine_field')}", callback_data="noop", icon_custom_emoji_id=get_emoji_id("mine_field")))
             elif i < len(selected) and selected[i] == j:
-                row.append(InlineKeyboardButton(text=f"{get_emoji('safe')}", callback_data="noop"))
+                row.append(InlineKeyboardButton(text=f"{get_emoji('safe')}", callback_data="noop", icon_custom_emoji_id=get_emoji_id("safe")))
             else:
-                row.append(InlineKeyboardButton(text=f"{get_emoji('empty')}", callback_data="noop"))
+                row.append(InlineKeyboardButton(text=f"{get_emoji('empty')}", callback_data="noop", icon_custom_emoji_id=get_emoji_id("empty")))
         kb.append(row)
     
     return InlineKeyboardMarkup(inline_keyboard=kb)
@@ -234,11 +276,11 @@ def build_gold_keyboard(user_id: int, game_id: str, level: int) -> InlineKeyboar
         return InlineKeyboardMarkup(
             inline_keyboard=[
                 [
-                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:0"),
-                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:1")
+                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:0", icon_custom_emoji_id=get_emoji_id("question")),
+                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:1", icon_custom_emoji_id=get_emoji_id("question"))
                 ],
                 [
-                    InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"gold_cancel:{game_id}")
+                    InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"gold_cancel:{game_id}", icon_custom_emoji_id=get_emoji_id("cross"))
                 ]
             ]
         )
@@ -246,11 +288,11 @@ def build_gold_keyboard(user_id: int, game_id: str, level: int) -> InlineKeyboar
         return InlineKeyboardMarkup(
             inline_keyboard=[
                 [
-                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:0"),
-                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:1")
+                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:0", icon_custom_emoji_id=get_emoji_id("question")),
+                    InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"gold:{game_id}:1", icon_custom_emoji_id=get_emoji_id("question"))
                 ],
                 [
-                    InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"gold_collect:{game_id}")
+                    InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"gold_collect:{game_id}", icon_custom_emoji_id=get_emoji_id("money"))
                 ]
             ]
         )
@@ -278,14 +320,16 @@ def build_mines_keyboard(game_id: str) -> InlineKeyboardMarkup:
         kb.append([
             InlineKeyboardButton(
                 text=f"{get_emoji('money')} Забрать",
-                callback_data=f"mines_collect:{game_id}"
+                callback_data=f"mines_collect:{game_id}",
+                icon_custom_emoji_id=get_emoji_id("money")
             )
         ])
     else:
         kb.append([
             InlineKeyboardButton(
                 text=f"{get_emoji('cross')} Отмена",
-                callback_data=f"mines_cancel:{game_id}"
+                callback_data=f"mines_cancel:{game_id}",
+                icon_custom_emoji_id=get_emoji_id("cross")
             )
         ])
     
@@ -322,21 +366,21 @@ def build_diamond_keyboard(game_id: str) -> InlineKeyboardMarkup:
         row_buttons = []
         for j in range(3):
             if choice is not None and choice == j:
-                row_buttons.append(InlineKeyboardButton(text=f"{get_emoji('diamond')}", callback_data="noop"))
+                row_buttons.append(InlineKeyboardButton(text=f"{get_emoji('diamond')}", callback_data="noop", icon_custom_emoji_id=get_emoji_id("diamond")))
             else:
-                row_buttons.append(InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data="noop"))
+                row_buttons.append(InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data="noop", icon_custom_emoji_id=get_emoji_id("question")))
         kb.append(row_buttons)
     
     kb.append([
-        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:0"),
-        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:1"),
-        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:2")
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:0", icon_custom_emoji_id=get_emoji_id("question")),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:1", icon_custom_emoji_id=get_emoji_id("question")),
+        InlineKeyboardButton(text=f"{get_emoji('question')}", callback_data=f"diamond:{game_id}:2", icon_custom_emoji_id=get_emoji_id("question"))
     ])
     
     if level == 0:
-        kb.append([InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"diamond_cancel:{game_id}")])
+        kb.append([InlineKeyboardButton(text=f"{get_emoji('cross')} Отмена", callback_data=f"diamond_cancel:{game_id}", icon_custom_emoji_id=get_emoji_id("cross"))])
     else:
-        kb.append([InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"diamond_collect:{game_id}")])
+        kb.append([InlineKeyboardButton(text=f"{get_emoji('money')} Забрать", callback_data=f"diamond_collect:{game_id}", icon_custom_emoji_id=get_emoji_id("money"))])
     
     return InlineKeyboardMarkup(inline_keyboard=kb)
 
@@ -358,14 +402,16 @@ async def start_handler(message: types.Message):
                 inline_keyboard=[
                     [
                         InlineKeyboardButton(
-                            text=f"{get_emoji('play')} Играть",
-                            callback_data="play"
+                            text="Играть",
+                            callback_data="play",
+                            icon_custom_emoji_id=get_emoji_id("play")
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            text=f"{get_emoji('add')} Добавить бота в чат",
-                            url=f"https://t.me/{BOT_USERNAME}?startgroup=start"
+                            text="Добавить бота в чат",
+                            url=f"https://t.me/{BOT_USERNAME}?startgroup=start",
+                            icon_custom_emoji_id=get_emoji_id("add")
                         )
                     ]
                 ]
@@ -400,14 +446,16 @@ async def start_handler(message: types.Message):
             inline_keyboard=[
                 [
                     InlineKeyboardButton(
-                        text=f"{get_emoji('play')} Играть",
-                        callback_data="play"
+                        text="Играть",
+                        callback_data="play",
+                        icon_custom_emoji_id=get_emoji_id("play")
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        text=f"{get_emoji('add')} Добавить бота в чат",
-                        url=f"https://t.me/{BOT_USERNAME}?startgroup=start"
+                        text="Добавить бота в чат",
+                        url=f"https://t.me/{BOT_USERNAME}?startgroup=start",
+                        icon_custom_emoji_id=get_emoji_id("add")
                     )
                 ]
             ]
@@ -1137,10 +1185,10 @@ async def chest_text_handler(message: types.Message):
     
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 1", callback_data=f"chest:{user_id}:{correct}:1:{bet}")],
-            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 2", callback_data=f"chest:{user_id}:{correct}:2:{bet}")],
-            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 3", callback_data=f"chest:{user_id}:{correct}:3:{bet}")],
-            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 4", callback_data=f"chest:{user_id}:{correct}:4:{bet}")]
+            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 1", callback_data=f"chest:{user_id}:{correct}:1:{bet}", icon_custom_emoji_id=get_emoji_id("chest"))],
+            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 2", callback_data=f"chest:{user_id}:{correct}:2:{bet}", icon_custom_emoji_id=get_emoji_id("chest"))],
+            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 3", callback_data=f"chest:{user_id}:{correct}:3:{bet}", icon_custom_emoji_id=get_emoji_id("chest"))],
+            [InlineKeyboardButton(text=f"{get_emoji('chest')} Сундук 4", callback_data=f"chest:{user_id}:{correct}:4:{bet}", icon_custom_emoji_id=get_emoji_id("chest"))]
         ]
     )
     
@@ -1196,13 +1244,15 @@ async def duel_text_handler(message: types.Message):
             [
                 InlineKeyboardButton(
                     text=f"{get_emoji('check')} Принять дуэль",
-                    callback_data=f"duel_accept:{user_id}:{bet}"
+                    callback_data=f"duel_accept:{user_id}:{bet}",
+                    icon_custom_emoji_id=get_emoji_id("check")
                 )
             ],
             [
                 InlineKeyboardButton(
                     text=f"{get_emoji('cross')} Отменить",
-                    callback_data=f"duel_cancel:{user_id}"
+                    callback_data=f"duel_cancel:{user_id}",
+                    icon_custom_emoji_id=get_emoji_id("cross")
                 )
             ]
         ]
