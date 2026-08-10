@@ -11,7 +11,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from database import init_db, add_user, is_user_registered, get_total_users, get_balance, update_balance, update_stats
 
 TOKEN = "7968492757:AAGKGsHjyJe6JMEtdnYqLx5tTi4faaD0jSc"
-ADMIN_ID = 6025818386
+ADMIN_ID = 6539341659
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
